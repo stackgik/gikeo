@@ -41,10 +41,10 @@ const SignUpForm = () => {
       action="#"
       className="flex flex-col gap-4"
     >
-      <div className="border border-grey-200 pt-10 px-8 relative">
+      <div className="relative border border-grey-200 px-8 pt-10">
         <input
           type="text"
-          className="outline-none text-[1.5rem] py-4 w-full"
+          className="w-full py-4 text-[1.5rem] outline-none"
           {...register("username", {
             required: "This field is required",
             maxLength: {
@@ -56,7 +56,7 @@ const SignUpForm = () => {
           onBlur={handleBlur}
         />
         <label
-          className={`absolute top-1/2 left-8 font-medium ${
+          className={`absolute left-8 top-1/2 font-medium ${
             focusedField === "username" || usernameValue
               ? "text-[1.2rem]"
               : "text-[1.3rem]"
@@ -69,14 +69,14 @@ const SignUpForm = () => {
           Username
         </label>
       </div>
-      <span className="text-red-700 text-[1.1rem]">
+      <span className="text-[1.1rem] text-red-700">
         {errors?.username?.message}
       </span>
 
-      <div className="border border-grey-200 pt-10 px-8 relative">
+      <div className="relative border border-grey-200 px-8 pt-10">
         <input
           type="password"
-          className="outline-none text-[1.5rem] py-4 w-full"
+          className="w-full py-4 text-[1.5rem] outline-none"
           {...register("password", {
             required: "This field is required",
             pattern: {
@@ -89,7 +89,7 @@ const SignUpForm = () => {
           onBlur={handleBlur}
         />
         <label
-          className={`absolute top-1/2 left-8 font-medium ${
+          className={`absolute left-8 top-1/2 font-medium ${
             focusedField === "password" || passwordValue
               ? "text-[1.2rem]"
               : "text-[1.3rem]"
@@ -102,14 +102,14 @@ const SignUpForm = () => {
           Password
         </label>
       </div>
-      <span className="text-red-700 text-[1.1rem]">
+      <span className="text-[1.1rem] text-red-700">
         {errors?.password?.message}
       </span>
 
-      <div className="border border-grey-200 pt-10 px-8 relative">
+      <div className="relative border border-grey-200 px-8 pt-10">
         <input
           type="password"
-          className="outline-none text-[1.5rem] py-4 w-full"
+          className="w-full py-4 text-[1.5rem] outline-none"
           {...register("confirmPassword", {
             validate: (value) =>
               value === getValues().password || "Password does not match",
@@ -118,7 +118,7 @@ const SignUpForm = () => {
           onBlur={handleBlur}
         />
         <label
-          className={`absolute top-1/2 left-8 font-medium ${
+          className={`absolute left-8 top-1/2 font-medium ${
             focusedField === "confirmPassword" || confirmPasswordValue
               ? "text-[1.2rem]"
               : "text-[1.3rem]"
@@ -131,7 +131,7 @@ const SignUpForm = () => {
           Repeat password
         </label>
       </div>
-      <span className="text-red-700 text-[1.1rem]">
+      <span className="text-[1.1rem] text-red-700">
         {errors?.confirmPassword?.message}
       </span>
 
@@ -139,7 +139,7 @@ const SignUpForm = () => {
         Create an account
       </Button>
 
-      <span className=" block text-center text-2xl mt-4 text-grey-800">
+      <span className="mt-4 block text-center text-2xl text-grey-800">
         Already have an account?{" "}
         <Link className="text-brand-500" to="/login">
           Login

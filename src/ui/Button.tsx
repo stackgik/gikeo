@@ -1,9 +1,9 @@
-import { MouseEvent, ReactNode } from 'react';
+import { MouseEvent, ReactNode } from "react";
 
 interface IButton {
   children: ReactNode;
-  width?: 'full';
-  size: 'small' | 'medium' | 'large';
+  width?: "full";
+  size: "small" | "medium" | "large";
   disabled?: boolean;
   onClick?: (e: MouseEvent<HTMLButtonElement>) => void;
   href?: string;

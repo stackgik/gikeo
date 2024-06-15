@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
 
 import PageNotFound from "./pages/PageNotFound";
 import AppLayout from "./ui/AppLayout";
@@ -12,6 +13,7 @@ import Details from "./features/movies/MovieDetails";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import ExploreMovies from "./pages/ExploreMovies";
 import SearchedMedia from "./features/search/SearchedMedia";
+import ProtectedRoute from "./ui/ProtectedRoute";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -28,8 +30,14 @@ const App = (): JSX.Element => {
         <ReactQueryDevtools initialIsOpen={false} />
         <BrowserRouter>
           <Routes>
-            <Route element={<AppLayout />}>
-              <Route index element={<Dashboard />} />
+            <Route index element={<Login />} />
+            <Route
+              element={
+                <ProtectedRoute>
+                  <AppLayout />
+                </ProtectedRoute>
+              }
+            >
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/:mediaType/:id" element={<Details />} />
               <Route path="/explore/movies" element={<ExploreMovies />} />
@@ -40,6 +48,25 @@ const App = (): JSX.Element => {
             <Route path="*" element={<PageNotFound />} />
           </Routes>
         </BrowserRouter>
+        <Toaster
+          position="top-center"
+          gutter={6}
+          toastOptions={{
+            success: {
+              duration: 3000,
+            },
+            error: {
+              duration: 5000,
+            },
+            style: {
+              fontSize: "15px",
+              padding: "10px 20px",
+              backgroundColor: "grey-0",
+              color: "grey-700",
+            },
+          }}
+        />
+        ;
       </QueryClientProvider>
     </DarkModeProvider>
   );

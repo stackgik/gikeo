@@ -1,8 +1,7 @@
 import { createClient, SupabaseClient } from "@supabase/supabase-js";
-import { config } from "../config";
 
-const SUPABASE_KEY = config.supabaseKey;
+const SUPABASE_KEY =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlmeXdrdXRjbHloemJ1ZWx5ZXdjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTgzNDMyNjcsImV4cCI6MjAzMzkxOTI2N30.mhuEZXDSyNG-yuk0ptFkTvxsWg4KSalhnOA6s4jVhYM";
 const supabaseUrl: string = "https://yfywkutclyhzbuelyewc.supabase.co";
-const supabaseKey = SUPABASE_KEY as string;
 
-export const supabase: SupabaseClient = createClient(supabaseUrl, supabaseKey);
+export const supabase: SupabaseClient = createClient(supabaseUrl, SUPABASE_KEY);
