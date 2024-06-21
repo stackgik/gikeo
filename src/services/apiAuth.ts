@@ -4,6 +4,35 @@ export type LoginProps = {
   email: string;
   password: string;
 };
+
+export type SignUpProps = {
+  username: string;
+  email: string;
+  password: string;
+  avatar?: string;
+};
+
+export const signUp = async ({
+  username,
+  email,
+  password,
+  avatar,
+}: SignUpProps) => {
+  const { data, error } = await supabase.auth.signUp({
+    email,
+    password,
+    options: {
+      data: {
+        username,
+        avatar: avatar || "",
+      },
+    },
+  });
+
+  if (error) throw new Error(error.message);
+  return data;
+};
+
 export const login = async ({ email, password }: LoginProps) => {
   // what this does is simple. It takes the arguments and check the database if there is any user by such details. If yes, user is authenticated and a session is created.
   const { data, error } = await supabase.auth.signInWithPassword({

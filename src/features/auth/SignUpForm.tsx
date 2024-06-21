@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
-import Button from "../../ui/Button";
 import { Link } from "react-router-dom";
+import SpinnerMini from "../../ui/SpinnerMini";
+import useSignUp from "./useSignUp";
 
 type FormData = {
   username: string;
+  email: string;
   password: string;
   confirmPassword: string;
 };
@@ -17,10 +19,18 @@ const SignUpForm = () => {
     getValues,
     watch,
     formState: { errors },
+    reset,
   } = useForm<FormData>();
 
-  const onSubmit: SubmitHandler<FormData> = (data) => {
-    console.log(data);
+  const { signUp, isSigningUp } = useSignUp();
+
+  const onSubmit: SubmitHandler<FormData> = ({ username, email, password }) => {
+    signUp(
+      { username, email, password },
+      {
+        onSettled: () => reset,
+      },
+    );
   };
 
   const handleFocus = (field: string) => {
@@ -29,6 +39,7 @@ const SignUpForm = () => {
 
   const usernameValue = watch("username", "");
   const passwordValue = watch("password", "");
+  const emailValue = watch("email", "");
   const confirmPasswordValue = watch("confirmPassword", "");
 
   const handleBlur = () => {
@@ -41,10 +52,10 @@ const SignUpForm = () => {
       action="#"
       className="flex flex-col gap-4"
     >
-      <div className="relative border border-grey-200 px-8 pt-10">
+      <div className="relative border border-grey-200 px-8 pt-10 dark:border-dark-grey-200">
         <input
           type="text"
-          className="w-full py-4 text-[1.5rem] outline-none"
+          className="w-full bg-transparent py-4 text-[1.5rem] outline-none"
           {...register("username", {
             required: "This field is required",
             maxLength: {
@@ -58,12 +69,8 @@ const SignUpForm = () => {
         <label
           className={`absolute left-8 top-1/2 font-medium ${
             focusedField === "username" || usernameValue
-              ? "text-[1.2rem]"
-              : "text-[1.3rem]"
-          } ${
-            focusedField === "username" || usernameValue
-              ? "top-3"
-              : "-translate-y-1/2"
+              ? "top-3 text-[1.2rem]"
+              : "-translate-y-1/2 text-[1.3rem]"
           } transition-all duration-200 ease-in-out`}
         >
           Username
@@ -73,10 +80,38 @@ const SignUpForm = () => {
         {errors?.username?.message}
       </span>
 
-      <div className="relative border border-grey-200 px-8 pt-10">
+      <div className="relative border border-grey-200 px-8 pt-10 dark:border-dark-grey-200">
+        <input
+          type="text"
+          className="w-full bg-transparent py-4 text-[1.5rem] outline-none"
+          {...register("email", {
+            required: "This field is required",
+            pattern: {
+              value: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
+              message: "Please enter a valid email address",
+            },
+          })}
+          onFocus={() => handleFocus("email")}
+          onBlur={handleBlur}
+        />
+        <label
+          className={`absolute left-8 top-1/2 font-medium ${
+            focusedField === "email" || emailValue
+              ? "top-3 text-[1.2rem]"
+              : "-translate-y-1/2 text-[1.3rem]"
+          } } transition-all duration-200 ease-in-out`}
+        >
+          Email address
+        </label>
+      </div>
+      <span className="text-[1.1rem] text-red-700">
+        {errors?.email?.message}
+      </span>
+
+      <div className="relative border border-grey-200 px-8 pt-10 dark:border-dark-grey-200">
         <input
           type="password"
-          className="w-full py-4 text-[1.5rem] outline-none"
+          className="w-full bg-transparent py-4 text-[1.5rem] outline-none"
           {...register("password", {
             required: "This field is required",
             pattern: {
@@ -91,12 +126,8 @@ const SignUpForm = () => {
         <label
           className={`absolute left-8 top-1/2 font-medium ${
             focusedField === "password" || passwordValue
-              ? "text-[1.2rem]"
-              : "text-[1.3rem]"
-          } ${
-            focusedField === "password" || passwordValue
-              ? "top-3"
-              : "-translate-y-1/2"
+              ? "top-3 text-[1.2rem]"
+              : "-translate-y-1/2 text-[1.3rem]"
           } transition-all duration-200 ease-in-out`}
         >
           Password
@@ -106,10 +137,10 @@ const SignUpForm = () => {
         {errors?.password?.message}
       </span>
 
-      <div className="relative border border-grey-200 px-8 pt-10">
+      <div className="relative border border-grey-200 px-8 pt-10 dark:border-dark-grey-200">
         <input
           type="password"
-          className="w-full py-4 text-[1.5rem] outline-none"
+          className="w-full bg-transparent py-4 text-[1.5rem] outline-none"
           {...register("confirmPassword", {
             validate: (value) =>
               value === getValues().password || "Password does not match",
@@ -120,12 +151,8 @@ const SignUpForm = () => {
         <label
           className={`absolute left-8 top-1/2 font-medium ${
             focusedField === "confirmPassword" || confirmPasswordValue
-              ? "text-[1.2rem]"
-              : "text-[1.3rem]"
-          } ${
-            focusedField === "confirmPassword" || confirmPasswordValue
-              ? "top-3"
-              : "-translate-y-1/2"
+              ? "top-3 text-[1.2rem]"
+              : "-translate-y-1/2 text-[1.3rem]"
           } transition-all duration-200 ease-in-out`}
         >
           Repeat password
@@ -135,16 +162,26 @@ const SignUpForm = () => {
         {errors?.confirmPassword?.message}
       </span>
 
-      <Button variation="primary" width="full" size="large">
-        Create an account
-      </Button>
+      <button
+        className="mt-8 flex h-20 w-full items-center justify-center bg-brand-500 font-semibold text-grey-0 transition-all duration-300 ease-linear hover:bg-brand-700 disabled:cursor-not-allowed disabled:bg-brand-200"
+        disabled={isSigningUp}
+      >
+        {isSigningUp ? (
+          <p className="flex items-center gap-2">
+            <SpinnerMini />
+            <span> Signing up... </span>
+          </p>
+        ) : (
+          "Sign Up"
+        )}
+      </button>
 
-      <span className="mt-4 block text-center text-2xl text-grey-800">
-        Already have an account?{" "}
-        <Link className="text-brand-500" to="/login">
-          Login
+      <p className="mt-8 text-center text-[1.4rem] font-medium text-grey-400">
+        <span>Already have an account?</span>{" "}
+        <Link to={"/login"} className="text-brand-500">
+          login
         </Link>
-      </span>
+      </p>
     </form>
   );
 };

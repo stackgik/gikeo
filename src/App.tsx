@@ -66,7 +66,6 @@ const App = (): JSX.Element => {
             },
           }}
         />
-        ;
       </QueryClientProvider>
     </DarkModeProvider>
   );
@@ -75,3 +74,4 @@ const App = (): JSX.Element => {
 export default App;
 
 // mFOdRUPzLs3Agnyo
+// PAT = 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
