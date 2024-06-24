@@ -18,7 +18,6 @@ const TrendingMedia = () => {
   // prettier-ignore
   const { active, setActive, trendingData, isTrendingDataLoading, trendingError } = useTrendingMedia();
   if (trendingError) return <p>{trendingError.message}</p>;
-  if (isTrendingDataLoading) return "loading...";
 
   const trending = trendingData?.results?.map((el) => ({
     id: el.id,
