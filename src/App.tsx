@@ -14,6 +14,8 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import ExploreMovies from "./pages/ExploreMovies";
 import SearchedMedia from "./features/search/SearchedMedia";
 import ProtectedRoute from "./ui/ProtectedRoute";
+import { BookmarksProvider } from "./context/BookmarksContext";
+import Bookmark from "./pages/Bookmark";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -26,47 +28,50 @@ const queryClient = new QueryClient({
 const App = (): JSX.Element => {
   return (
     <DarkModeProvider>
-      <QueryClientProvider client={queryClient}>
-        <ReactQueryDevtools initialIsOpen={false} />
-        <BrowserRouter>
-          <Routes>
-            <Route index element={<Login />} />
-            <Route
-              element={
-                <ProtectedRoute>
-                  <AppLayout />
-                </ProtectedRoute>
-              }
-            >
-              <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/:mediaType/:id" element={<Details />} />
-              <Route path="/explore/movies" element={<ExploreMovies />} />
-              <Route path="/search" element={<SearchedMedia />} />
-            </Route>
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<SignUp />} />
-            <Route path="*" element={<PageNotFound />} />
-          </Routes>
-        </BrowserRouter>
-        <Toaster
-          position="top-center"
-          gutter={6}
-          toastOptions={{
-            success: {
-              duration: 3000,
-            },
-            error: {
-              duration: 5000,
-            },
-            style: {
-              fontSize: "15px",
-              padding: "10px 20px",
-              backgroundColor: "grey-0",
-              color: "grey-700",
-            },
-          }}
-        />
-      </QueryClientProvider>
+      <BookmarksProvider>
+        <QueryClientProvider client={queryClient}>
+          <ReactQueryDevtools initialIsOpen={false} />
+          <BrowserRouter>
+            <Routes>
+              <Route index element={<Login />} />
+              <Route
+                element={
+                  <ProtectedRoute>
+                    <AppLayout />
+                  </ProtectedRoute>
+                }
+              >
+                <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/:mediaType/:id" element={<Details />} />
+                <Route path="/explore/movies" element={<ExploreMovies />} />
+                <Route path="/search" element={<SearchedMedia />} />
+                <Route path="/bookmarks" element={<Bookmark />} />
+              </Route>
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<SignUp />} />
+              <Route path="*" element={<PageNotFound />} />
+            </Routes>
+          </BrowserRouter>
+          <Toaster
+            position="top-center"
+            gutter={6}
+            toastOptions={{
+              success: {
+                duration: 3000,
+              },
+              error: {
+                duration: 5000,
+              },
+              style: {
+                fontSize: "15px",
+                padding: "10px 20px",
+                backgroundColor: "grey-0",
+                color: "grey-700",
+              },
+            }}
+          />
+        </QueryClientProvider>
+      </BookmarksProvider>
     </DarkModeProvider>
   );
 };

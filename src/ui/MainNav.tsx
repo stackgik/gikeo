@@ -40,7 +40,7 @@ const MainNav = () => {
         </li>
 
         <li>
-          <NavLink to="/bookmarks" className="navlink group">
+          <NavLink to="/settings" className="navlink group">
             <HiOutlineCog6Tooth className="group-hover:text-brand-500" />
             <span>Settings</span>
           </NavLink>
