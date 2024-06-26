@@ -31,7 +31,7 @@ const TrendingMedia = () => {
 
   return (
     <>
-      <div className="mx-auto mt-24 flex w-[130rem] items-center justify-between">
+      <div className="w-custom-min-width mx-auto mt-24 flex items-center justify-between">
         <Tag>trending</Tag>
         <Switch
           setActive={setActive}

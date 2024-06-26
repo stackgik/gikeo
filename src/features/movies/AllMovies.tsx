@@ -45,7 +45,7 @@ const AllMovies = () => {
 
   return (
     <>
-      <section className="mx-auto flex w-[130rem] flex-col gap-12 py-8">
+      <section className="mx-auto flex w-custom-min-width flex-col gap-12 py-8">
         <div className="flex items-center justify-between">
           <h1 className="text-4xl font-bold text-grey-800 dark:text-dark-grey-800">
             Explore Movies

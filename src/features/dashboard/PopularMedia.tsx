@@ -31,7 +31,7 @@ const PopularMedia = () => {
 
   return (
     <>
-      <div className="mx-auto mt-24 flex w-[130rem] items-center justify-between">
+      <div className="mx-auto mt-24 flex w-custom-min-width items-center justify-between">
         <Tag>popular</Tag>
         <Switch
           setActive={setActive}

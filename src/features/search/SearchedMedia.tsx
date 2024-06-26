@@ -25,7 +25,7 @@ const SearchedMedia = () => {
 
   return (
     <>
-      <section className="mx-auto flex w-[130rem] flex-col gap-12 py-8">
+      <section className="w-custom-min-width mx-auto flex flex-col gap-12 py-8">
         <div className="flex items-center justify-between">
           <h1 className="text-4xl font-bold text-grey-800 dark:text-dark-grey-800">
             Your search results are here...

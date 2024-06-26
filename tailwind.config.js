@@ -109,6 +109,9 @@ export default {
       transitionTimingFunction: {
         spring: "cubic-bezier(0.88, -0.35, 0.565, 1.35)",
       },
+      width: {
+        "custom-min-width": "min(100% - 2rem, 1300px)",
+      },
     },
   },
   plugins: [],
