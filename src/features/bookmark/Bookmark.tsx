@@ -14,14 +14,14 @@ const Bookmark = ({ mediaData, mediaType }: MediaDataProps) => {
 
   return (
     <div
-      className="group absolute right-[20px] top-[15px] flex aspect-square h-[2.4rem] cursor-pointer items-center justify-center rounded-full bg-grey-700 text-[13px] transition-all duration-300 hover:bg-grey-0"
+      className="group absolute right-[20px] top-[15px] flex aspect-square h-[2.4rem] cursor-pointer items-center justify-center rounded-full bg-grey-700 text-[13px] transition-all duration-300"
       role="button"
     >
       {isBookmarked(mediaData.id) ? (
         <HiBookmark className="fill-grey-0" onClick={handleBookmark} />
       ) : (
         <HiOutlineBookmark
-          className="stroke-grey-0 stroke-2 group-hover:stroke-grey-700"
+          className="stroke-grey-0 stroke-2"
           onClick={handleBookmark}
         />
       )}

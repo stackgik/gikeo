@@ -21,7 +21,7 @@ const SearchField = () => {
     setQuery("");
     searchParams.delete("query");
     setSearchParams(searchParams);
-    navigate("/");
+    navigate("/dashboard");
   };
 
   return (

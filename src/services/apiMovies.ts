@@ -21,7 +21,7 @@ export type Movie = {
   language: string;
 };
 
-type AllMoviesProps = {
+export type AllMoviesProps = {
   movies: Movie[];
   totalPages: number;
 };
@@ -36,12 +36,15 @@ type ApiMovie = {
   vote_count: number;
   id: number;
   title: string;
+  name: string;
+  original_name: string;
   poster_path: string;
   vote_average: number;
   release_date: string;
+  first_air_date: string;
 };
 
-type ApiResponse = {
+export type ApiResponse = {
   page: number;
   results: ApiMovie[];
   total_results: number;

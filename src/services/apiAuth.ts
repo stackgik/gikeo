@@ -1,4 +1,5 @@
-import { supabase } from "./supabase";
+import { supabase, supabaseUrl } from "./supabase";
+import { v4 as uuidv4 } from "uuid";
 
 export type LoginProps = {
   email: string;
@@ -12,12 +13,8 @@ export type SignUpProps = {
   avatar?: string;
 };
 
-export const signUp = async ({
-  username,
-  email,
-  password,
-  avatar,
-}: SignUpProps) => {
+// prettier-ignore
+export const signUp = async ({ username, email, password, avatar}: SignUpProps) => {
   const { data, error } = await supabase.auth.signUp({
     email,
     password,
@@ -60,4 +57,46 @@ export const getCurrentUser = async () => {
 export const logout = async () => {
   const { error } = await supabase.auth.signOut();
   if (error) throw new Error(error.message);
+};
+
+export type UpdateUserProps = {
+  username?: string;
+  password?: string;
+  avatar?: File | null;
+};
+
+// This function is used to update the user's profile in the database.
+export const updateUser = async ({
+  username,
+  password,
+  avatar,
+}: UpdateUserProps) => {
+  const updateData: { password?: string; data?: { username?: string } } = {};
+
+  // Conditionally add properties to updateData
+  if (username) updateData.data = { ...(updateData.data || {}), username };
+  if (password) updateData.password = password;
+
+  // Updating either password or username
+  const { data, error } = await supabase.auth.updateUser(updateData);
+  if (error) throw new Error(error.message);
+  if (!avatar) return data.user;
+
+  // Handling avatar upload to supabas bucket with unique file name
+  const fileName = `avatar-${data.user.id}-${uuidv4()}`;
+  const { error: uploadError } = await supabase.storage
+    .from("avatars")
+    .upload(fileName, avatar);
+  if (uploadError) throw new Error(uploadError.message);
+
+  // Updating user with the saved avatar
+  const { data: updatedUser, error: updateError } =
+    await supabase.auth.updateUser({
+      data: {
+        avatar: `${supabaseUrl}/storage/v1/object/public/avatars/${fileName}`,
+      },
+    });
+
+  if (updateError) throw new Error(updateError.message);
+  return updatedUser;
 };

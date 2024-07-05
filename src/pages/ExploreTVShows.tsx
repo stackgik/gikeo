@@ -1,7 +1,7 @@
 import AllMedia from "../features/movies/AllMedia";
 import useDiscoverMedia from "../features/movies/useDiscoverMedia";
-import { getAllMovies } from "../services/apiMovies";
-const ExploreMovies = () => {
+import { getAllTVSeries } from "../services/apiTVSeries";
+const ExploreTVShows = () => {
   const {
     allMediaData,
     isAllMediaLoading,
@@ -9,7 +9,7 @@ const ExploreMovies = () => {
     pageNum,
     setPageNum,
     totalPages,
-  } = useDiscoverMedia(getAllMovies, "all_movies");
+  } = useDiscoverMedia(getAllTVSeries, "all_tvs");
 
   return (
     <AllMedia
@@ -19,8 +19,8 @@ const ExploreMovies = () => {
       pageNum={pageNum}
       setPageNum={setPageNum}
       totalPages={totalPages}
-      mediaType={"movies"}
+      mediaType={"tv"}
     />
   );
 };
-export default ExploreMovies;
+export default ExploreTVShows;

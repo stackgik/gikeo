@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Sono:wght@200..800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Sono:wght@200..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -33,18 +33,18 @@ body {
   @tailwind;
 
   .navlink {
-    @apply flex items-center gap-6 text-grey-600 dark:text-dark-grey-600 font-semibold px-8 py-6 transition-all duration-300 hover:text-grey-800  dark:hover:text-dark-grey-800 text-[1.6rem] hover:bg-grey-50 dark:hover:bg-dark-grey-50 rounded-sm active:text-grey-800 dark:active:text-dark-grey-800 active:bg-grey-50 dark:active:bg-dark-grey-50;
+    @apply flex items-center gap-6 rounded-sm px-8 py-6 text-[1.6rem] font-semibold text-grey-600 transition-all duration-300 hover:bg-grey-50 hover:text-grey-800 active:bg-grey-50 active:text-grey-800 dark:text-dark-grey-600 dark:hover:bg-dark-grey-50 dark:hover:text-dark-grey-800 dark:active:bg-dark-grey-50 dark:active:text-dark-grey-800;
   }
 
   .navlink svg {
-    @apply w-[2.4rem] h-[2.4rem] text-grey-400 dark:text-dark-grey-400 hover:text-brand-600 active:text-brand-600;
+    @apply h-[2.4rem] w-[2.4rem] text-grey-400 hover:text-brand-600 active:text-brand-600 dark:text-dark-grey-400;
   }
 
   #logout {
     @apply text-red-500;
   }
   .navlink.active {
-    @apply text-grey-800 dark:text-dark-grey-800 bg-grey-50 dark:bg-dark-grey-50 rounded-sm;
+    @apply rounded-sm bg-grey-50 text-grey-800 dark:bg-dark-grey-50 dark:text-dark-grey-800;
   }
 
   .navlink.active svg {
@@ -52,15 +52,15 @@ body {
   }
 
   .swiper-container {
-    @apply w-full col-start-1 col-span-2 mx-auto py-24 px-20 bg-grey-0 dark:bg-dark-grey-0 border border-grey-100 dark:border-dark-grey-100 rounded-lg;
+    @apply col-span-2 col-start-1 mx-auto w-full rounded-lg border border-grey-100 bg-grey-0 px-20 py-24 dark:border-dark-grey-100 dark:bg-dark-grey-0;
   }
 
   .swiper-button {
-    @apply h-[35px] aspect-square bg-grey-50 cursor-pointer dark:bg-dark-grey-50 rounded-full flex items-center justify-center text-[1.8rem] dark:text-dark-grey-800;
+    @apply flex aspect-square h-[35px] cursor-pointer items-center justify-center rounded-full bg-grey-50 text-[1.8rem] dark:bg-dark-grey-50 dark:text-dark-grey-800;
   }
 
   .swiper-pagination1 > .swiper-pagination-bullet {
-    @apply size-0 h-[2px] w-[1.5rem] bg-grey-500 dark:bg-dark-grey-500 rounded-none transition-all duration-300 ease-linear;
+    @apply size-0 h-[2px] w-[1.5rem] rounded-none bg-grey-500 transition-all duration-300 ease-linear dark:bg-dark-grey-500;
   }
 
   .trailerContainer,
@@ -166,5 +166,50 @@ body {
     mask: radial-gradient(farthest-side, transparent calc(100% - 10px), #000 0);
 
     animation: rotate 1.5s infinite linear;
+  }
+}
+
+.fileInput {
+  @apply rounded-sm text-[1.4rem];
+}
+
+.fileInput::file-selector-button {
+  font: inherit;
+  font-weight: 500;
+  padding: 1.2rem;
+  margin-right: 1.2rem;
+  border-radius: 5px;
+  border: none;
+  color: #eef2ff;
+  background-color: theme(colors.brand-500);
+  cursor: pointer;
+  transition:
+    color 0.2s,
+    background-color 0.2s;
+}
+
+.fileInput::file-selector-button:hover {
+  background-color: #4338ca;
+}
+
+.loader::before {
+  content: "";
+  position: absolute;
+  border-radius: 50px;
+  box-shadow: 0 0 0 3px inset theme(colors.brand-600);
+  animation: squirm 0.75s infinite alternate;
+}
+
+@keyframes squirm {
+  0% {
+    inset: 0 35px 0 0;
+  }
+
+  50% {
+    inset: 0 0 0 0;
+  }
+
+  100% {
+    inset: 0 0 0 35px;
   }
 }

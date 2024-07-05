@@ -1,4 +1,4 @@
-import { HiOutlineArrowLeft, HiOutlineArrowRight } from "react-icons/hi2";
+import { HiOutlineChevronLeft, HiOutlineChevronRight } from "react-icons/hi2";
 import Button from "../../ui/Button";
 import { SkeletonCard } from "../../ui/SkeletonCard";
 import { useSearchQuery } from "./useSearchQuery";
@@ -23,9 +23,17 @@ const SearchedMedia = () => {
   const hasPreviousPage = page > 1;
   const hasNextPage = totalPages > page;
 
+  const handleNextPage = () => {
+    setPage((prev) => prev + 1);
+  };
+
+  const handlePreviousPage = () => {
+    setPage((prev) => prev - 1);
+  };
+
   return (
     <>
-      <section className="w-custom-min-width mx-auto flex flex-col gap-12 py-8">
+      <section className="mx-auto flex w-custom-min-width flex-col gap-12 py-8">
         <div className="flex items-center justify-between">
           <h1 className="text-4xl font-bold text-grey-800 dark:text-dark-grey-800">
             Your search results are here...
@@ -38,19 +46,14 @@ const SearchedMedia = () => {
               <SkeletonCard key={index} />
             ))}
           </div>
+        ) : queryData?.length === 0 ? (
+          <img src="/assets/no-results.png" alt="no results" />
         ) : (
-          queryData !== undefined &&
-          queryData.length > 0 && (
-            <div className="grid h-fit w-full grid-cols-5 gap-x-6 gap-y-8">
-              {queryData.map((el) => (
-                <MediaCard
-                  mediaData={el}
-                  key={el.id}
-                  mediaType={el.mediaType}
-                />
-              ))}
-            </div>
-          )
+          <div className="grid h-fit w-full grid-cols-5 gap-x-6 gap-y-8">
+            {queryData?.map((el) => (
+              <MediaCard mediaData={el} key={el.id} mediaType={el.mediaType} />
+            ))}
+          </div>
         )}
       </section>
       {!isQueryResultsLoading && totalPages > 1 && (
@@ -58,24 +61,23 @@ const SearchedMedia = () => {
           <Button
             size={"medium"}
             disabled={!hasPreviousPage}
-            className={
-              "rounded-md border border-grey-200 dark:border-dark-grey-200 dark:text-dark-grey-800"
-            }
+            variation={"secondary"}
+            onClick={handlePreviousPage}
+            extraClass={"flex gap-4"}
           >
-            <HiOutlineArrowLeft />
+            <HiOutlineChevronLeft />
             <span>Previous</span>
           </Button>
 
           <Button
             size={"medium"}
+            variation={"secondary"}
             disabled={!hasNextPage}
-            className={
-              "flex gap-4 rounded-md border border-grey-200 dark:border-dark-grey-200 dark:text-dark-grey-800"
-            }
-            onClick={() => setPage((prev) => prev + 1)}
+            onClick={handleNextPage}
+            extraClass={"flex gap-4"}
           >
             <span>Next</span>
-            <HiOutlineArrowRight />
+            <HiOutlineChevronRight />
           </Button>
         </div>
       )}

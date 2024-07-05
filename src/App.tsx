@@ -16,6 +16,8 @@ import SearchedMedia from "./features/search/SearchedMedia";
 import ProtectedRoute from "./ui/ProtectedRoute";
 import { BookmarksProvider } from "./context/BookmarksContext";
 import Bookmark from "./pages/Bookmark";
+import Settings from "./pages/Settings";
+import ExploreTVShows from "./pages/ExploreTVShows";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -44,8 +46,10 @@ const App = (): JSX.Element => {
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/:mediaType/:id" element={<Details />} />
                 <Route path="/explore/movies" element={<ExploreMovies />} />
+                <Route path="/explore/tv-series" element={<ExploreTVShows />} />
                 <Route path="/search" element={<SearchedMedia />} />
                 <Route path="/bookmarks" element={<Bookmark />} />
+                <Route path="/settings" element={<Settings />} />
               </Route>
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<SignUp />} />
@@ -79,4 +83,5 @@ const App = (): JSX.Element => {
 export default App;
 
 // mFOdRUPzLs3Agnyo
-PAT = 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;
+
+// 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

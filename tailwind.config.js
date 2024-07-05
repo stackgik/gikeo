@@ -112,6 +112,13 @@ export default {
       width: {
         "custom-min-width": "min(100% - 2rem, 1300px)",
       },
+      screens: {
+        desktop: { max: "90em" },
+        miniDesktop: { max: "75em" },
+        PC: { max: "64em" },
+        tablet: { max: "43.75em" },
+        mobile: { max: "30em" },
+      },
     },
   },
   plugins: [],

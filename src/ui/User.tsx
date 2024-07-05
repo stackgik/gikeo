@@ -1,16 +1,21 @@
+import useCurrentUser from "../features/auth/useCurrentUser";
+
 const User = () => {
+  const { user } = useCurrentUser();
+  const { username, avatar } = user?.user_metadata || {};
+
   return (
-    <div className="flex gap-4 items-center ">
-      <figure className="h-[40px] w-[40px] rounded-full overflow-hidden">
+    <div className="flex items-center gap-4">
+      <figure className="h-[40px] w-[40px] overflow-hidden rounded-full">
         <img
-          src="/default-user.png"
+          src={avatar || "/default-user.png"}
           alt="user avatar"
-          className="object-cover w-full h-full"
+          className="h-full w-full object-cover"
         />
       </figure>
 
-      <span className="text-[1.8rem] dark:text-grey-50 font-semibold">
-        Stackgik
+      <span className="text-[1.8rem] font-semibold capitalize dark:text-grey-50">
+        {username}
       </span>
     </div>
   );
