@@ -73,5 +73,3 @@ const App = (): JSX.Element => {
 };
 
 export default App;
-
-// mFOdRUPzLs3Agnyo
