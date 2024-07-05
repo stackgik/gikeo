@@ -81,7 +81,3 @@ const App = (): JSX.Element => {
 };
 
 export default App;
-
-// mFOdRUPzLs3Agnyo
-
-// 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
