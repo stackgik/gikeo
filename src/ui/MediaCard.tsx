@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import Img from "./Img";
 import CircularRating from "./CircularRating";
 import { TbMovie } from "react-icons/tb";
-import PosterFallback from "../../public/assets/no-poster.png";
+import PosterFallback from "/assets/no-poster.png";
 import { type Movie } from "../services/apiMovies";
 import Bookmark from "../features/bookmark/Bookmark";
 
