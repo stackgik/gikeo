@@ -26,7 +26,7 @@ const MovieDetails = () => {
         </div>
       </DetailsOverviewContainer>
 
-      <section className="mx-auto my-32 grid w-custom-min-width grid-cols-[1fr_1fr_1fr] gap-6">
+      <section className="mx-auto my-32 grid w-custom-min-width grid-cols-3 gap-6">
         <Casts />
         <div className="col-start-3 row-start-1 row-end-4 flex h-max flex-col gap-16">
           <OtherFilmDetails />
