@@ -7,7 +7,7 @@ import { Navigation } from "swiper/modules";
 import Cast from "./Cast";
 import Tag from "./Tag";
 import useMovieDetails from "../features/movies/useMovieDetails";
-import FallbackAvatar from "../../public/assets/avatar.png";
+import FallbackAvatar from "/assets/avatar.png";
 
 const Casts = () => {
   // prettier-ignore

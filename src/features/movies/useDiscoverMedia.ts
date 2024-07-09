@@ -1,11 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
-// import { getAllMovies } from "../../services/apiMovies";
 import { useSearchParams } from "react-router-dom";
 import { useState } from "react";
-// import { type AllMoviesProps } from "../../services/apiMovies";
-
-// type MediaAPI = (sortBy: string | null, page: number) => AllMoviesProps;
-// type ExploreMedia = (mediaApi: MediaAPI, key: string) => void;
 
 // prettier-ignore
 const useDiscoverMedia = (mediaApi, key: string) => {

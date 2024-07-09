@@ -17,7 +17,6 @@ export const getPopularMedia = async (
   mediaType: string,
 ): Promise<SimilarMoviesResponse> => {
   try {
-    await new Promise((resolve) => setTimeout(resolve, 5000));
     const { data } = await axios.get<SimilarMoviesResponse>(
       `${BASE_URL}/${mediaType}/popular`,
       options,

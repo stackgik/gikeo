@@ -1,5 +1,5 @@
 import useMovieDetails from "../features/movies/useMovieDetails";
-import PosterFallback from "../../public/assets/no-poster.png";
+import PosterFallback from "/assets/no-poster.png";
 
 const DetailsTumbnail = () => {
   // prettier-ignore
