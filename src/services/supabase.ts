@@ -1,7 +1,13 @@
 import { createClient, SupabaseClient } from "@supabase/supabase-js";
+import { config } from "../config";
 
-const SUPABASE_KEY =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlmeXdrdXRjbHloemJ1ZWx5ZXdjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTgzNDMyNjcsImV4cCI6MjAzMzkxOTI2N30.mhuEZXDSyNG-yuk0ptFkTvxsWg4KSalhnOA6s4jVhYM";
-export const supabaseUrl: string = "https://yfywkutclyhzbuelyewc.supabase.co";
+const supabaseKey = config.supabaseKey as string;
+export const supabaseUrl = config.supabaseUrl as string;
 
-export const supabase: SupabaseClient = createClient(supabaseUrl, SUPABASE_KEY);
+if (!supabaseUrl || !supabaseKey) {
+  throw new Error("Missing Supabase URL or Key");
+}
+
+export const supabase: SupabaseClient = createClient(supabaseUrl, supabaseKey);
+
+console.log(supabase, supabaseKey, supabaseUrl);
