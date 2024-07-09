@@ -9,5 +9,3 @@ if (!supabaseUrl || !supabaseKey) {
 }
 
 export const supabase: SupabaseClient = createClient(supabaseUrl, supabaseKey);
-
-console.log(supabase, supabaseKey, supabaseUrl);
