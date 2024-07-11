@@ -6,7 +6,7 @@ import MediaCard from "../../ui/MediaCard";
 
 const SearchedMedia = () => {
   // prettier-ignore
-  const { queryResults, isQueryResultsLoading, queryResultsError, page, setPage } = useSearchQuery();
+  const { queryResults, isQueryResultsLoading, queryResultsError, page, setPage,query } = useSearchQuery();
   if (queryResultsError) return <p>{queryResultsError.message}</p>;
 
   const { results } = queryResults || {};
@@ -34,11 +34,15 @@ const SearchedMedia = () => {
   return (
     <>
       <section className="mx-auto flex w-custom-min-width flex-col gap-12 py-8">
-        <div className="flex items-center justify-between">
+        {isQueryResultsLoading ? (
+          ""
+        ) : (
           <h1 className="text-4xl font-bold text-grey-800 dark:text-dark-grey-800">
-            Your search results are here...
+            {queryResults?.results.length === 0
+              ? `Aww...looks like we couldn't find shows by "${query}"`
+              : "Your search results are here..."}
           </h1>
-        </div>
+        )}
 
         {isQueryResultsLoading ? (
           <div className="grid h-fit w-full grid-cols-5 gap-x-6 gap-y-8">
@@ -47,7 +51,11 @@ const SearchedMedia = () => {
             ))}
           </div>
         ) : queryData?.length === 0 ? (
-          <img src="/assets/no-results.png" alt="no results" />
+          <img
+            src="/assets/no-results.png"
+            alt="no results"
+            className="mx-auto block w-[600px]"
+          />
         ) : (
           <div className="grid h-fit w-full grid-cols-5 gap-x-6 gap-y-8">
             {queryData?.map((el) => (

@@ -10,7 +10,7 @@ export const useSearchQuery = () => {
     const query = searchParams.get('query') as string
     const [page, setPage] = useState(1)
     searchParams.set('page', String(page));
-  setSearchParams(searchParams);
+
 
   const {data: queryResults, isLoading: isQueryResultsLoading, error: queryResultsError} = useQuery<SimilarMoviesResponse, Error>({
     queryKey: ["search", query, page],
@@ -19,5 +19,7 @@ export const useSearchQuery = () => {
     enabled: !!query,
   });
 
-  return { queryResults, isQueryResultsLoading, queryResultsError, page, setPage };
+  if(!isQueryResultsLoading && queryResults?.results.length !== 0) setSearchParams(searchParams); 
+
+  return { queryResults, isQueryResultsLoading, queryResultsError, page, setPage, query };
 };
