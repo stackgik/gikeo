@@ -13,7 +13,8 @@ const SearchField = () => {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
-    if (query.length >= 3) searchParams.set("query", query);
+    if (query.length < 3) return;
+    searchParams.set("query", query);
     navigate(`/search?query=${query}`);
   };
 
