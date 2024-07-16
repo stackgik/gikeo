@@ -19,7 +19,7 @@ const ExploreMovies = () => {
       pageNum={pageNum}
       setPageNum={setPageNum}
       totalPages={totalPages}
-      mediaType={"movies"}
+      mediaType={"movie"}
     />
   );
 };

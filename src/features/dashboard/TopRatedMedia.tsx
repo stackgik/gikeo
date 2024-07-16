@@ -17,7 +17,8 @@ import useTopRatedMedia from "./useTopRatedMedia";
 const TopRatedMedia = () => {
   // prettier-ignore
   const { active, setActive, topRatedData, isTopRatedDataLoading, topRatedError } = useTopRatedMedia();
-  if (topRatedError) return <p>{topRatedError.message}</p>;
+  
+  if (topRatedError) return <p className="text-[1.4rem] text-center font-medium dark:text-dark-grey-500">{topRatedError.message}</p>;
 
   const topRated = topRatedData?.results?.map((el) => ({
     id: el.id,

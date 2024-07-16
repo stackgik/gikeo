@@ -14,30 +14,47 @@ const MovieDetails = () => {
   // prettier-ignore
   const { isMovieDetailsLoading, movieDetailsError } = useMovieDetails();
 
-  if (movieDetailsError) return <p>{movieDetailsError.message}</p>;
-  if (isMovieDetailsLoading) return <Spinner />;
+  if (movieDetailsError)
+    return (
+      <p className="mt-12 text-center text-[1.3rem] font-medium dark:text-dark-grey-500">
+        {movieDetailsError.message}
+      </p>
+    );
+
+  if (isMovieDetailsLoading)
+    return (
+      <div className="mx-auto flex w-fit flex-col">
+        <Spinner />{" "}
+        <span className="text-[1.3rem] font-medium dark:text-dark-grey-500">
+          Loading media details...
+        </span>
+      </div>
+    );
 
   return (
-    <>
+    <div className="pb-28">
       <DetailsOverviewContainer>
-        <div className="flex w-[1300px] items-center gap-8">
+        <div className="flex w-custom-min-width gap-8">
           <DetailsTumbnail />
           <QuickOverview />
         </div>
       </DetailsOverviewContainer>
 
-      <section className="mx-auto my-32 grid w-custom-min-width grid-cols-3 gap-6">
-        <Casts />
-        <div className="col-start-3 row-start-1 row-end-4 flex h-max flex-col gap-16">
+      <section className="mx-auto my-32 grid w-custom-min-width grid-cols-[70%_30%] gap-6">
+        <div className="grid h-fit grid-cols-1 gap-8">
+          <Casts />
+          <Reviews />
+          <TrailerSection />
+        </div>
+
+        <div className="grid h-fit grid-cols-1 gap-24">
           <OtherFilmDetails />
           <PhotoGallery />
         </div>
-        <Reviews />
-        <TrailerSection />
       </section>
 
       <SimilarMedia />
-    </>
+    </div>
   );
 };
 

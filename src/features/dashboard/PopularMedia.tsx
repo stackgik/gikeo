@@ -17,7 +17,13 @@ import usePopularMedia from "./usePopularMedia";
 const PopularMedia = () => {
   // prettier-ignore
   const { active, setActive, popularData, isPopularDataLoading, popularError } = usePopularMedia();
-  if (popularError) return <p>{popularError.message}</p>;
+
+  if (popularError)
+    return (
+      <p className="text-center text-[1.4rem] font-medium dark:text-dark-grey-500">
+        {popularError.message}
+      </p>
+    );
 
   const popular = popularData?.results?.map((el) => ({
     id: el.id,

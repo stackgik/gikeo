@@ -1,16 +1,17 @@
 interface IGalleryImage {
   src: string;
   alt: string;
-  className: string;
 }
 
-const GalleryImage = ({ src, alt, className }: IGalleryImage) => {
+const GalleryImage = ({ src, alt }: IGalleryImage) => {
   return (
-    <img
-      src={src}
-      alt={alt}
-      className={`w-full h-full object-cover ${className} object-top`}
-    />
+    <div className="overflow-hidden rounded-md">
+      <img
+        src={src}
+        alt={alt}
+        className="h-full w-full cursor-pointer object-cover object-center transition-all duration-300 ease-in-out hover:scale-105"
+      />
+    </div>
   );
 };
 

@@ -4,7 +4,12 @@ import SkeletonBanner from "../../ui/SkeletonBanner";
 const Banner = () => {
   const { bannerData, isBannerDataLoading, isBannerError } = useBanner();
 
-  if (isBannerError) return <p>Failed to load banner data</p>;
+  if (isBannerError)
+    return (
+      <p className="text-center text-[1.4rem] font-medium dark:text-dark-grey-500">
+        Failed to load banner data
+      </p>
+    );
 
   const bannerBackdrops = bannerData?.results;
   const randomNumber = bannerBackdrops

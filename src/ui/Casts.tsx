@@ -51,7 +51,7 @@ const Casts = () => {
         })}
       </Swiper>
 
-      {casts !== undefined && casts?.length > 5 && (
+      {casts !== undefined && casts?.length > 4 && (
         <div className="slider-controller absolute right-[5rem] top-[6rem] flex items-center justify-center gap-6">
           <div className="swiper-button" role="button" id="prev1">
             <HiOutlineChevronLeft />

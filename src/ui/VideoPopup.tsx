@@ -1,6 +1,6 @@
-import { Dispatch, SetStateAction } from 'react';
-import { HiOutlineXMark } from 'react-icons/hi2';
-import ReactPlayer from 'react-player/youtube';
+import { Dispatch, SetStateAction } from "react";
+import { HiOutlineXMark } from "react-icons/hi2";
+import ReactPlayer from "react-player/youtube";
 
 type VideoPopupProps = {
   videoId: string | null;
@@ -13,16 +13,17 @@ const VideoPopup = ({ videoId, show, resetVideoState }: VideoPopupProps) => {
   return (
     <>
       {show && (
-        <div className="overlay h-screen w-full backdrop-blur-sm fixed top-0 left-0 z-10"></div>
+        <div className="overlay fixed left-0 top-0 z-10 h-screen w-full backdrop-blur-sm"></div>
       )}
       {show && (
-        <div className="w-[100rem] h-[50rem] fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
+        <div className="fixed left-1/2 top-1/2 z-20 h-[50rem] w-full max-w-[100rem] -translate-x-1/2 -translate-y-1/2">
           <span
-            className="h-[4rem] flex items-center justify-center text-[2rem] bg-brand-50 aspect-square rounded-full absolute -top-[4rem] -right-[6rem] z-20 cursor-pointer"
+            className="absolute -right-[6rem] -top-[4rem] z-20 flex aspect-square h-[4rem] cursor-pointer items-center justify-center rounded-full bg-brand-200 text-[2rem]"
             onClick={resetVideoState}
           >
-            <HiOutlineXMark />
+            <HiOutlineXMark className="dark:text-dark-grey-100" />
           </span>
+
           <ReactPlayer
             url={`https://www.youtube.com/watch?v=${videoId}`}
             width="100%"

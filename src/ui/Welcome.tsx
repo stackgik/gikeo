@@ -7,7 +7,7 @@ const Welcome = () => {
   return (
     <div className="flex flex-col gap-2">
       <span className="text-4xl font-bold capitalize text-grey-800 dark:text-dark-grey-800">
-        {`Hey ${username}!`}
+        {`Hey, ${username}!`}
       </span>
       <small className="text-[1.3rem] font-medium dark:text-dark-grey-500">
         Enjoy the best of times

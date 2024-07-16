@@ -5,9 +5,13 @@ type CastProps = {
 };
 const Cast = ({ imgSrc, name, character }: CastProps) => {
   return (
-    <article className="w-full overflow-hidden rounded-md border border-grey-100 dark:border-dark-grey-100 text-grey-800 dark:text-dark-grey-800 shadow-sm">
-      <img src={imgSrc} alt="" className="w-full h-[15rem] object-cover" />
-      <div className="flex flex-col gap-4 p-6 bg-transparent">
+    <article className="w-full overflow-hidden rounded-md border border-grey-100 text-grey-800 shadow-sm dark:border-dark-grey-100 dark:text-dark-grey-800">
+      <img
+        src={imgSrc}
+        alt=""
+        className="h-[20rem] w-full object-cover object-top"
+      />
+      <div className="flex flex-col gap-4 bg-transparent p-6">
         <h3 className="text-[1.3rem] font-semibold">{name}</h3>
         <span className="text-[1.3rem]">{character}</span>
       </div>

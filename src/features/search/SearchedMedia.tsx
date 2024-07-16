@@ -7,7 +7,13 @@ import MediaCard from "../../ui/MediaCard";
 const SearchedMedia = () => {
   // prettier-ignore
   const { queryResults, isQueryResultsLoading, queryResultsError, page, setPage,query } = useSearchQuery();
-  if (queryResultsError) return <p>{queryResultsError.message}</p>;
+
+  if (queryResultsError)
+    return (
+      <p className="text-center text-[1.4rem] font-medium dark:text-dark-grey-500">
+        {queryResultsError.message}
+      </p>
+    );
 
   const { results } = queryResults || {};
   const queryData = results?.map((el) => ({

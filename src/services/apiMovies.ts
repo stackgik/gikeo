@@ -59,7 +59,6 @@ export const getAllMovies = async (sortByValue: string | null, page: number): Pr
   };
 
   try {
-    // await new Promise ((resolve) => setTimeout(resolve, 5000))
     const { data } = await axios.get<ApiResponse>(`${BASE_URL}/discover/movie`, {
       ...options,
       params,

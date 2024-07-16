@@ -17,7 +17,13 @@ import { SkeletonCard } from "../../ui/SkeletonCard";
 const TrendingMedia = () => {
   // prettier-ignore
   const { active, setActive, trendingData, isTrendingDataLoading, trendingError } = useTrendingMedia();
-  if (trendingError) return <p>{trendingError.message}</p>;
+
+  if (trendingError)
+    return (
+      <p className="text-center text-[1.4rem] font-medium dark:text-dark-grey-500">
+        {trendingError.message}
+      </p>
+    );
 
   const trending = trendingData?.results?.map((el) => ({
     id: el.id,
@@ -31,7 +37,7 @@ const TrendingMedia = () => {
 
   return (
     <>
-      <div className="w-custom-min-width mx-auto mt-24 flex items-center justify-between">
+      <div className="mx-auto mt-24 flex w-custom-min-width items-center justify-between">
         <Tag>trending</Tag>
         <Switch
           setActive={setActive}

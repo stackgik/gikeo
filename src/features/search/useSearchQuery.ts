@@ -19,7 +19,7 @@ export const useSearchQuery = () => {
     enabled: !!query,
   });
 
-  if(!isQueryResultsLoading && queryResults?.results.length !== 0) setSearchParams(searchParams); 
+  if(queryResults?.results.length !== 0) setSearchParams(searchParams); 
 
   return { queryResults, isQueryResultsLoading, queryResultsError, page, setPage, query };
 };

@@ -1,4 +1,4 @@
-import MovieDetails from '../features/movies/MovieDetails';
+import MovieDetails from "../features/movies/MovieDetails";
 
 const Movie = () => {
   return <MovieDetails />;

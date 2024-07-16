@@ -32,28 +32,36 @@ const SimilarMedia = () => {
     language: el.original_language,
   }));
 
+  if (!refinedSimilarMovies?.length) return "";
+
   return (
     <section className="mx-auto w-[1300px]">
       <Tag>{`Similar ${mediaType}S`}</Tag>
-      <Swiper
-        loop={false}
-        grabCursor={true}
-        spaceBetween={20}
-        slidesPerView={5.3}
-        className="mb-8 mt-16 w-full"
-      >
-        {isMovieDetailsLoading
-          ? ["a", "b", "c", "d", "e", "f"].map((_, index) => (
-              <SwiperSlide key={index}>
-                <SkeletonCard />
-              </SwiperSlide>
-            ))
-          : refinedSimilarMovies?.map((similarMovie) => (
-              <SwiperSlide key={similarMovie.id}>
-                <MediaCard mediaData={similarMovie} mediaType={"movie"} />
-              </SwiperSlide>
-            ))}
-      </Swiper>
+      {!refinedSimilarMovies?.length ? (
+        <p className="mt-6 text-[1.5rem] font-medium dark:text-dark-grey-500">
+          {`Oh oh! There is no similar ${mediaType === "tv" ? "TV shows" : mediaType} to display`}
+        </p>
+      ) : (
+        <Swiper
+          loop={false}
+          grabCursor={true}
+          spaceBetween={20}
+          slidesPerView={5.3}
+          className="mb-8 mt-16 w-full"
+        >
+          {isMovieDetailsLoading
+            ? ["a", "b", "c", "d", "e", "f"].map((_, index) => (
+                <SwiperSlide key={index}>
+                  <SkeletonCard />
+                </SwiperSlide>
+              ))
+            : refinedSimilarMovies?.map((similarMovie) => (
+                <SwiperSlide key={similarMovie.id}>
+                  <MediaCard mediaData={similarMovie} mediaType={"movie"} />
+                </SwiperSlide>
+              ))}
+        </Swiper>
+      )}
     </section>
   );
 };

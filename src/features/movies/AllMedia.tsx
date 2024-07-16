@@ -40,7 +40,7 @@ const AllMedia = ({  allMediaData,  isAllMediaLoading,  allMediaError,  pageNum,
     setPageNum((prev) => prev - 1);
   };
 
-  if (allMediaError) return <p>{allMediaError.message}</p>;
+  if (allMediaError) return <p className="text-[1.4rem] text-center font-medium dark:text-dark-grey-500">{allMediaError.message}</p>;
 
   return (
     <>
@@ -50,7 +50,7 @@ const AllMedia = ({  allMediaData,  isAllMediaLoading,  allMediaError,  pageNum,
            {`Explore ${mediaType === 'tv' ? 'TV Shows' : 'Movies'}`}
           </h1>
           <div>
-            <SortBy options={sortByData} />
+            {isAllMediaLoading || allMediaError ? "" : <SortBy options={sortByData} />}
           </div>
         </div>
 
