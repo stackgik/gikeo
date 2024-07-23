@@ -1,7 +1,7 @@
 import MovieDetails from "../features/movies/MovieDetails";
 
-const Movie = () => {
+const MediaFullDetails = () => {
   return <MovieDetails />;
 };
 
-export default Movie;
+export default MediaFullDetails;

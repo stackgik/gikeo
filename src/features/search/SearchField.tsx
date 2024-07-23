@@ -38,7 +38,7 @@ const SearchField = ({ setIsSearchFieldOpen }: SearchFieldProp) => {
   };
 
   return (
-    <div className="grid w-full max-w-[400px] grid-cols-[auto_1fr_auto] items-center gap-6 rounded-[40px] bg-grey-50 px-6 py-4 tablet:border tablet:border-grey-200 dark:bg-dark-grey-50 dark:tablet:border-dark-grey-200">
+    <div className="grid w-[400px] grid-cols-[auto_1fr_auto] items-center gap-6 rounded-[40px] bg-grey-50 px-6 py-4 tablet:w-full tablet:border tablet:border-grey-200 dark:bg-dark-grey-50 dark:tablet:border-dark-grey-200">
       <HiOutlineMagnifyingGlass className="h-[25px] w-[25px] text-grey-500 tablet:h-[15px]" />
       <form className="w-full" onSubmit={handleSubmit}>
         <input
