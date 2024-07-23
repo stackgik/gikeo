@@ -2,16 +2,25 @@ import { Outlet } from "react-router-dom";
 import Footer from "./Footer";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
+import { useMenuToggle } from "../context/MenuToggleContext";
+import OverlayingSidebar from "./OverlayingSidebar";
 
 const AppLayout = () => {
+  const { isSidebarOpen } = useMenuToggle();
+
   return (
-    <div className="grid grid-cols-[260px_1fr] h-screen grid-rows-[auto_1fr_auto]">
-      <Sidebar />
+    <div className="grid h-screen grid-cols-[260px_1fr] grid-rows-[auto_1fr_auto] PC:flex PC:flex-col">
+      <div className="col-start-1 row-span-full row-start-1 PC:hidden">
+        <Sidebar />
+      </div>
       <Header />
-      <main className="bg-grey-50 dark:bg-dark-grey-50 overflow-y-scroll">
+      <main
+        className={`${isSidebarOpen ? "overflow-y-hidden" : "overflow-y-scroll"} bg-grey-50 dark:bg-dark-grey-50`}
+      >
         <Outlet />
       </main>
       <Footer />
+      <OverlayingSidebar />
     </div>
   );
 };

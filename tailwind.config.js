@@ -111,7 +111,7 @@ export default {
         spring: "cubic-bezier(0.88, -0.35, 0.565, 1.35)",
       },
       width: {
-        "custom-min-width": "min(100%, 1300px)",
+        "custom-min-width": "min(100% - 4rem, 1300px)",
       },
       screens: {
         desktop: { max: "90em" },

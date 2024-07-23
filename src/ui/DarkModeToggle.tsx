@@ -8,9 +8,9 @@ function DarkModeToggle() {
   return (
     <ButtonIcon onClick={toggleDarkMode}>
       {isDarkMode ? (
-        <HiOutlineSun className="group-hover:text-brand-500 text-brand-500 transition-all duration-300" />
+        <HiOutlineSun className="text-grey-400 transition-all duration-300 dark:text-dark-grey-400" />
       ) : (
-        <HiOutlineMoon className="group-hover:text-brand-500 text-brand-500 transition-all duration-300" />
+        <HiOutlineMoon className="text-grey-400 transition-all duration-300 dark:text-dark-grey-400" />
       )}
     </ButtonIcon>
   );

@@ -33,12 +33,14 @@ const Banner = () => {
         backgroundPosition: "top",
       }}
     >
-      <h1 className="flex flex-col gap-16 text-grey-0">
-        <p className="text-center text-[6rem]">Welcome.</p>
-        <p className="text-center text-[2rem]">
-          Millions of movies and TV shows to discover. Start exploring...
-        </p>
-      </h1>
+      <div className="px-8">
+        <h1 className="flex flex-col gap-16 text-grey-0">
+          <p className="text-center text-[6rem]">Welcome.</p>
+          <p className="text-center text-[2rem] leading-10">
+            Millions of movies and TV shows to discover. Start exploring...
+          </p>
+        </h1>
+      </div>
     </div>
   );
 };

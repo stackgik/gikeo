@@ -5,7 +5,7 @@ const Welcome = () => {
   const username = user?.user_metadata.username;
 
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col gap-2 mobile:hidden">
       <span className="text-4xl font-bold capitalize text-grey-800 dark:text-dark-grey-800">
         {`Hey, ${username}!`}
       </span>

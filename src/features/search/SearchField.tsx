@@ -1,7 +1,18 @@
 import { HiOutlineMagnifyingGlass, HiOutlineXMark } from "react-icons/hi2";
-import { ChangeEvent, FormEvent, useState } from "react";
+import {
+  ChangeEvent,
+  Dispatch,
+  FormEvent,
+  SetStateAction,
+  useState,
+} from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
-const SearchField = () => {
+
+type SearchFieldProp = {
+  setIsSearchFieldOpen?: Dispatch<SetStateAction<boolean>>;
+};
+
+const SearchField = ({ setIsSearchFieldOpen }: SearchFieldProp) => {
   const [query, setQuery] = useState("");
   const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
@@ -16,6 +27,7 @@ const SearchField = () => {
     if (query.length < 3) return;
     searchParams.set("query", query);
     navigate(`/search?query=${query}`);
+    if (setIsSearchFieldOpen) setIsSearchFieldOpen(false);
   };
 
   const clearQuery = () => {
@@ -26,8 +38,8 @@ const SearchField = () => {
   };
 
   return (
-    <div className="grid w-[400px] grid-cols-[auto_1fr_auto] items-center gap-6 rounded-[40px] bg-grey-50 px-6 py-4 dark:bg-dark-grey-50">
-      <HiOutlineMagnifyingGlass className="h-[25px] w-[25px] text-grey-500" />
+    <div className="grid w-full max-w-[400px] grid-cols-[auto_1fr_auto] items-center gap-6 rounded-[40px] bg-grey-50 px-6 py-4 tablet:border tablet:border-grey-200 dark:bg-dark-grey-50 dark:tablet:border-dark-grey-200">
+      <HiOutlineMagnifyingGlass className="h-[25px] w-[25px] text-grey-500 tablet:h-[15px]" />
       <form className="w-full" onSubmit={handleSubmit}>
         <input
           type="text"

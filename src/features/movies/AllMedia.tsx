@@ -45,24 +45,24 @@ const AllMedia = ({  allMediaData,  isAllMediaLoading,  allMediaError,  pageNum,
   return (
     <>
       <section className="mx-auto flex w-custom-min-width flex-col gap-12 py-8">
-        <div className="flex items-center justify-between">
-          <h1 className="text-4xl font-bold text-grey-800 dark:text-dark-grey-800">
+        <div className="flex items-center justify-between mobile:flex-col mobile:gap-8 mobile:justify-start">
+          <h1 className="text-4xl font-bold text-grey-800 dark:text-dark-grey-800 mobile:self-start">
            {`Explore ${mediaType === 'tv' ? 'TV Shows' : 'Movies'}`}
           </h1>
-          <div>
+          <div className="mobile:self-start">
             {isAllMediaLoading || allMediaError ? "" : <SortBy options={sortByData} />}
           </div>
         </div>
 
         {isAllMediaLoading ? (
-          <div className="grid h-fit w-full grid-cols-5 gap-x-6 gap-y-8">
-            {Array.from({ length: 5 }, (_, index) => (
+          <div className="grid h-fit w-full grid-cols-6 gap-x-6 gap-y-8 miniDesktop:grid-cols-5 PC:grid-cols-5 tablet:grid-cols-3 mobile:grid-cols-2">
+            {Array.from({ length: 20 }, (_, index) => (
               <SkeletonCard key={index} />
             ))}
           </div>
         ) : (
           allMediaData.length > 0 && (
-            <div className="grid h-fit w-full grid-cols-5 gap-x-6 gap-y-8">
+            <div className="grid h-fit w-full grid-cols-6 gap-x-6 gap-y-8 miniDesktop:grid-cols-5 PC:grid-cols-5 tablet:grid-cols-3 mobile:grid-cols-2">
               {allMediaData.map((media) => (
                 <MediaCard
                   mediaData={media}
@@ -75,7 +75,7 @@ const AllMedia = ({  allMediaData,  isAllMediaLoading,  allMediaError,  pageNum,
         )}
       </section>
       {!isAllMediaLoading && totalPages > 1 && (
-        <div className="mx-auto my-12 flex w-[130rem] items-center justify-end gap-8">
+        <div className="mx-auto my-12 flex w-custom-min-width items-center justify-end gap-8">
           <Button
             size={"medium"}
             disabled={!hasPreviousPage}

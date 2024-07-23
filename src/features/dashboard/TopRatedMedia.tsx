@@ -17,8 +17,13 @@ import useTopRatedMedia from "./useTopRatedMedia";
 const TopRatedMedia = () => {
   // prettier-ignore
   const { active, setActive, topRatedData, isTopRatedDataLoading, topRatedError } = useTopRatedMedia();
-  
-  if (topRatedError) return <p className="text-[1.4rem] text-center font-medium dark:text-dark-grey-500">{topRatedError.message}</p>;
+
+  if (topRatedError)
+    return (
+      <p className="text-center text-[1.4rem] font-medium dark:text-dark-grey-500">
+        {topRatedError.message}
+      </p>
+    );
 
   const topRated = topRatedData?.results?.map((el) => ({
     id: el.id,
@@ -42,12 +47,32 @@ const TopRatedMedia = () => {
         />
       </div>
 
-      <section className="mx-auto my-16 w-[130rem]">
+      <section className="mx-auto my-16 w-custom-min-width">
         <Swiper
           loop={false}
           grabCursor={true}
-          spaceBetween={20}
-          slidesPerView={5.3}
+          spaceBetween={15}
+          slidesPerView={6.6}
+          breakpoints={{
+            0: {
+              slidesPerView: 1.6,
+            },
+            401: {
+              slidesPerView: 2.8,
+            },
+            701: {
+              slidesPerView: 4.3,
+            },
+            1025: {
+              slidesPerView: 3.6,
+            },
+            1201: {
+              slidesPerView: 5.3,
+            },
+            1441: {
+              slidesPerView: 6.6,
+            },
+          }}
           className="w-full"
         >
           {isTopRatedDataLoading

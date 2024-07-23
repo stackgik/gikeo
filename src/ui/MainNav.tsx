@@ -7,6 +7,7 @@ import {
 
 import { MdOutlineMovieCreation } from "react-icons/md";
 import NavItem from "./NavItem";
+
 const MainNav = () => {
   return (
     <nav>

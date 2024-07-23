@@ -14,7 +14,7 @@ const User = () => {
         />
       </figure>
 
-      <span className="text-[1.8rem] font-semibold capitalize dark:text-grey-50">
+      <span className="text-[1.8rem] font-semibold capitalize miniDesktop:hidden dark:text-grey-50">
         {username}
       </span>
     </div>

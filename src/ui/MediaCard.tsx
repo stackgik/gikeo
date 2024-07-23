@@ -21,7 +21,7 @@ const MediaCard = ({mediaData, mediaType}:MediaDataProps) => {
 
   return (
     <article className="h-fit">
-      <div className="image-container relative h-[35rem]">
+      <div className="image-container relative">
         <Link to={`/${mediaType}/${id}-${title.toLowerCase().replace(/\s+/g, '-')}`}>
           <Img src={posterUrl} alt={'working on it'} />
         </Link>
