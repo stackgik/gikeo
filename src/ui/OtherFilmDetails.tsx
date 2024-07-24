@@ -37,7 +37,7 @@ const mediaLanguage = formatLanguageCode(lang);
 
   
   return (
-    <section className="text-[1.5rem] text-grey-400 py-24 px-20 bg-grey-0 dark:bg-dark-grey-0 border border-grey-100 dark:border-dark-grey-100 rounded-lg ">
+    <section className="text-[1.5rem] text-grey-400 py-24 px-20 bg-grey-0 dark:bg-dark-grey-0 border border-grey-100 dark:border-dark-grey-100 rounded-lg tablet:py-20 mobile:p-12">
       <Tag>movie details</Tag>
       <ul className="mt-24 flex flex-col gap-16">
         <li className="flex flex-col gap-4">

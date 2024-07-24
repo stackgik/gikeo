@@ -35,7 +35,7 @@ const SimilarMedia = () => {
   if (!refinedSimilarMovies?.length) return "";
 
   return (
-    <section className="mx-auto w-[1300px]">
+    <section className="mx-auto w-custom-min-width">
       <Tag>{`Similar ${mediaType}S`}</Tag>
       {!refinedSimilarMovies?.length ? (
         <p className="mt-6 text-[1.5rem] font-medium dark:text-dark-grey-500">
@@ -46,7 +46,27 @@ const SimilarMedia = () => {
           loop={false}
           grabCursor={true}
           spaceBetween={20}
-          slidesPerView={5.3}
+          slidesPerView={6.6}
+          breakpoints={{
+            0: {
+              slidesPerView: 1.6,
+            },
+            401: {
+              slidesPerView: 3.2,
+            },
+            701: {
+              slidesPerView: 4.3,
+            },
+            1025: {
+              slidesPerView: 3.6,
+            },
+            1201: {
+              slidesPerView: 5.3,
+            },
+            1441: {
+              slidesPerView: 6.6,
+            },
+          }}
           className="mb-8 mt-16 w-full"
         >
           {isMovieDetailsLoading

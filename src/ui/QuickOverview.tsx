@@ -34,11 +34,13 @@ const QuickOverview = () => {
   return (
     <div className="flex flex-col gap-10">
       <Tag>{releaseYear}</Tag>
-      <h1 className="text-[4rem] font-bold text-grey-0">{title}</h1>
+      <h1 className="text-[4rem] font-bold leading-[4rem] text-grey-0 tablet:text-grey-600 dark:tablet:text-dark-grey-600">
+        {title}
+      </h1>
       <span className="text-[1.3rem] text-grey-400">
         <em>{tagline}</em>
       </span>
-      <div className="flex gap-6">
+      <div className="flex flex-wrap gap-6">
         {genres.map((genre, index) => (
           <Genre key={index}>{genre.name}</Genre>
         ))}
@@ -52,7 +54,7 @@ const QuickOverview = () => {
 
       <div className="flex flex-col gap-y-6">
         <Tag>plot</Tag>
-        <p className="w-[50rem] text-[1.4rem] leading-[1.9] text-grey-100">
+        <p className="max-w-[50rem] text-[1.4rem] leading-[1.9] text-grey-100 tablet:text-grey-600 dark:tablet:text-dark-grey-600">
           {plot ? plot : "The plot was not provided"}
         </p>
       </div>

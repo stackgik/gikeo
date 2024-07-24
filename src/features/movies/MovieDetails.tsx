@@ -36,18 +36,31 @@ const MovieDetails = () => {
       <DetailsOverviewContainer>
         <div className="flex w-custom-min-width gap-8">
           <DetailsTumbnail />
-          <QuickOverview />
+          <div className="tablet:hidden">
+            <QuickOverview />
+          </div>
         </div>
       </DetailsOverviewContainer>
 
-      <section className="mx-auto my-32 grid w-custom-min-width grid-cols-[70%_30%] gap-6">
+      <div className="bg-grey-50 px-8 py-16 dark:bg-dark-grey-50">
+        <QuickOverview />
+      </div>
+
+      <section className="mx-auto my-32 grid w-custom-min-width grid-cols-[70%_30%] gap-6 desktop:grid-cols-1 desktop:gap-y-12">
+        {/* One for the tablet and mobile screens */}
+        <div className="hidden desktop:grid desktop:h-fit desktop:grid-cols-2 desktop:items-center desktop:gap-24 tablet:gap-8 mobile:grid-cols-1 mobile:gap-12">
+          <OtherFilmDetails />
+          <PhotoGallery />
+        </div>
+
         <div className="grid h-fit grid-cols-1 gap-8">
           <Casts />
           <Reviews />
           <TrailerSection />
         </div>
 
-        <div className="grid h-fit grid-cols-1 gap-24">
+        {/* One for big screen */}
+        <div className="grid h-fit grid-cols-1 gap-24 desktop:hidden desktop:grid-cols-2">
           <OtherFilmDetails />
           <PhotoGallery />
         </div>

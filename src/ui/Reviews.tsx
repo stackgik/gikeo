@@ -28,7 +28,7 @@ const Reviews = () => {
   const reviews = reviewsData.results;
 
   return (
-    <section className="swiper-container">
+    <section className="swiper-container mobile:p-12">
       <Tag>Reviews</Tag>
 
       {reviews.length > 0 ? (
@@ -37,6 +37,24 @@ const Reviews = () => {
           grabCursor={true}
           spaceBetween={20}
           slidesPerView={1.3}
+          breakpoints={{
+            0: {
+              slidesPerView: 1.1,
+            },
+            401: {
+              slidesPerView: 1.2,
+            },
+            701: {
+              slidesPerView: 1.5,
+            },
+            1025: {
+              slidesPerView: 1.2,
+            },
+            1201: {
+              slidesPerView: 1.8,
+            },
+            // Add more breakpoints as needed.
+          }}
           pagination={{ el: ".swiper-pagination1", clickable: true }}
           navigation={{
             nextEl: "#next2",
@@ -67,7 +85,7 @@ const Reviews = () => {
       )}
 
       {reviews.length > 1 && (
-        <div className="slider-controller mx-auto flex w-max items-center justify-center gap-8">
+        <div className="slider-controller mx-auto flex w-max items-center justify-center gap-8 mobile:hidden">
           <div className="swiper-button" role="button" id="prev2">
             <HiOutlineChevronLeft />
           </div>

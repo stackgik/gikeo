@@ -19,7 +19,7 @@ const PhotoGallery = () => {
         </p>
       ) : (
         <div
-          className={`grid ${imageCount <= 2 ? "h-[250px]" : "h-[500px]"} grid-cols-2 gap-2 grid-rows-${imageCount <= 2 ? "1" : "2"}`}
+          className={`grid desktop:gap-8 ${imageCount <= 2 ? "h-[250px]" : "h-[500px]"} grid-cols-2 gap-2 grid-rows-${imageCount <= 2 ? "1" : "2"}`}
         >
           {imageURLs?.map((el, index) => (
             <GalleryImage

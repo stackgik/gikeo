@@ -20,13 +20,31 @@ const Casts = () => {
   const casts = result?.cast.slice(0, 20);
 
   return (
-    <section className="swiper-container relative">
+    <section className="swiper-container relative mobile:p-12">
       <Tag>Top Billed Casts</Tag>
       <Swiper
         loop={false}
         grabCursor={true}
         spaceBetween={20}
         slidesPerView={4.3}
+        breakpoints={{
+          0: {
+            slidesPerView: 1.6,
+          },
+          401: {
+            slidesPerView: 3.6,
+          },
+          701: {
+            slidesPerView: 4.8,
+          },
+          1025: {
+            slidesPerView: 4.2,
+          },
+          1201: {
+            slidesPerView: 6.2,
+          },
+          // Add more breakpoints as needed.
+        }}
         navigation={{
           nextEl: "#next1",
           prevEl: "#prev1",
@@ -52,7 +70,7 @@ const Casts = () => {
       </Swiper>
 
       {casts !== undefined && casts?.length > 4 && (
-        <div className="slider-controller absolute right-[5rem] top-[6rem] flex items-center justify-center gap-6">
+        <div className="slider-controller absolute right-[5rem] top-[6rem] flex items-center justify-center gap-6 mobile:hidden">
           <div className="swiper-button" role="button" id="prev1">
             <HiOutlineChevronLeft />
           </div>

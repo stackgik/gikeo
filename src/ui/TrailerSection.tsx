@@ -34,13 +34,31 @@ const TrailerSection = () => {
   }
 
   return (
-    <section className="swiper-container">
+    <section className="swiper-container mobile:p-12">
       <Tag>Official Trailers</Tag>
       <Swiper
         loop={false}
         grabCursor={true}
         spaceBetween={20}
         slidesPerView={2.3}
+        breakpoints={{
+          0: {
+            slidesPerView: 1.2,
+          },
+          401: {
+            slidesPerView: 1.8,
+          },
+          701: {
+            slidesPerView: 2.5,
+          },
+          1025: {
+            slidesPerView: 2.2,
+          },
+          1201: {
+            slidesPerView: 3.5,
+          },
+          // Add more breakpoints as needed.
+        }}
         className="mb-8 mt-16 w-full"
       >
         {teasers !== undefined && teasers.length > 0 ? (

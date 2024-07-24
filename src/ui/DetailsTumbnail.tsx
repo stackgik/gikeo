@@ -20,7 +20,7 @@ const DetailsTumbnail = () => {
       : `https://image.tmdb.org/t/p/original/${poster}`;
 
   return (
-    <figure className="h-[450px] w-[300px] shrink-0 self-start overflow-hidden rounded-md">
+    <figure className="h-[450px] w-[300px] shrink-0 self-start overflow-hidden rounded-md tablet:h-[280px] tablet:w-[190px]">
       <img
         src={posterUrl}
         alt=""
