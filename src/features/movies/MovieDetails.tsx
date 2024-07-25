@@ -47,7 +47,7 @@ const MovieDetails = () => {
       </div>
 
       <section className="mx-auto my-32 grid w-custom-min-width grid-cols-[70%_30%] gap-6 desktop:grid-cols-1 desktop:gap-y-12">
-        {/* The one for the tablet and mobile screens */}
+        {/* The one for tablet and mobile screens */}
         <div className="hidden desktop:grid desktop:h-fit desktop:grid-cols-2 desktop:items-center desktop:gap-24 miniDesktop:gap-8 tablet:gap-8 mobile:grid-cols-1 mobile:gap-12">
           <OtherFilmDetails />
           <PhotoGallery />
