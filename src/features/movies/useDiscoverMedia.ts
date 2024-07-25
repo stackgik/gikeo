@@ -1,8 +1,14 @@
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { AllMoviesProps } from "../../services/apiMovies";
 
-const useDiscoverMedia = (mediaApi, key: string) => {
+type MediaApi = (
+  sortByValue: string | null,
+  page: number,
+) => Promise<AllMoviesProps>;
+
+const useDiscoverMedia = (mediaApi: MediaApi, key: string) => {
   const queryClient = useQueryClient();
   const [searchParams, setSearchParams] = useSearchParams();
   const sortByValue = searchParams.get("sortBy");
