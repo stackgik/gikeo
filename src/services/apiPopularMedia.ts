@@ -1,5 +1,5 @@
 import axios from "axios";
-import { config } from "../config.ts";
+import { config } from "../config";
 import { type SimilarMoviesResponse } from "./apiMovies";
 
 const BASE_URL = "https://api.themoviedb.org/3";
