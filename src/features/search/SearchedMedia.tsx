@@ -51,7 +51,7 @@ const SearchedMedia = () => {
         )}
 
         {isQueryResultsLoading ? (
-          <div className="grid h-fit w-full grid-cols-5 gap-x-6 gap-y-8">
+          <div className="grid h-fit w-full grid-cols-5 gap-x-6 gap-y-8 miniDesktop:grid-cols-5 PC:grid-cols-5 tablet:grid-cols-3 mobile:grid-cols-2">
             {Array.from({ length: 20 }, (_, index) => (
               <SkeletonCard key={index} />
             ))}
@@ -63,7 +63,7 @@ const SearchedMedia = () => {
             className="mx-auto block w-[600px]"
           />
         ) : (
-          <div className="grid h-fit w-full grid-cols-5 gap-x-6 gap-y-8">
+          <div className="grid h-fit w-full grid-cols-5 gap-x-6 gap-y-8 miniDesktop:grid-cols-5 PC:grid-cols-5 tablet:grid-cols-3 mobile:grid-cols-2">
             {queryData?.map((el) => (
               <MediaCard mediaData={el} key={el.id} mediaType={el.mediaType} />
             ))}

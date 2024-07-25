@@ -12,7 +12,7 @@ const Cast = ({ imgSrc, name, character }: CastProps) => {
         className="h-[20rem] w-full object-cover object-top"
       />
       <div className="flex flex-col gap-4 bg-transparent p-6">
-        <h3 className="text-[1.3rem] font-semibold">{name}</h3>
+        <h3 className="text-[1.4rem] font-semibold">{name}</h3>
         <span className="text-[1.3rem]">{character}</span>
       </div>
     </article>

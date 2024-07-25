@@ -11,7 +11,6 @@ const Logout = () => {
     e.preventDefault();
     logout();
   }
-
   if (isLoggingOut) return <OverlayLoader />;
   return (
     <Link to="" className="navlink group" onClick={handleLogout}>

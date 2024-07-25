@@ -2,10 +2,7 @@ import { Link } from "react-router-dom";
 
 const Logo = () => {
   return (
-    <Link
-      to={"/dashboard"}
-      className="mx-auto mb-20 block py-4 text-center PC:mb-0 PC:py-0"
-    >
+    <Link to={"/dashboard"} className="mx-auto block py-4 text-center PC:py-0">
       <img
         src="/new_logo.png"
         alt="Logo"

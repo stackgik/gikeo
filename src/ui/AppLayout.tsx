@@ -4,9 +4,14 @@ import Header from "./Header";
 import Sidebar from "./Sidebar";
 import { useMenuToggle } from "../context/MenuToggleContext";
 import OverlayingSidebar from "./OverlayingSidebar";
+import OverlayLoader from "./OverlayLoader";
+// import { useLoading } from "../context/LogoutLoaderContext";
+import useLogout from "../features/auth/useLogout";
 
 const AppLayout = () => {
   const { isSidebarOpen } = useMenuToggle();
+  // const { isLoading } = useLoading();
+  const { isLoggingOut } = useLogout();
 
   return (
     <div className="grid h-screen grid-cols-[260px_1fr] grid-rows-[auto_1fr_auto] PC:flex PC:flex-col">
@@ -21,6 +26,7 @@ const AppLayout = () => {
       </main>
       <Footer />
       <OverlayingSidebar />
+      {isLoggingOut && <OverlayLoader />}
     </div>
   );
 };

@@ -54,7 +54,7 @@ const QuickOverview = () => {
 
       <div className="flex flex-col gap-y-6">
         <Tag>plot</Tag>
-        <p className="max-w-[50rem] text-[1.4rem] leading-[1.9] text-grey-100 tablet:text-grey-600 dark:tablet:text-dark-grey-600">
+        <p className="max-w-[50rem] text-[1.6rem] leading-[1.9] text-grey-100 tablet:text-grey-600 dark:tablet:text-dark-grey-600">
           {plot ? plot : "The plot was not provided"}
         </p>
       </div>

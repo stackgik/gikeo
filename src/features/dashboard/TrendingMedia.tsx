@@ -64,7 +64,7 @@ const TrendingMedia = () => {
               slidesPerView: 4.3,
             },
             1025: {
-              slidesPerView: 3.6,
+              slidesPerView: 4.2,
             },
             1201: {
               slidesPerView: 5.3,

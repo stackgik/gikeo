@@ -32,7 +32,7 @@ const Casts = () => {
             slidesPerView: 1.6,
           },
           401: {
-            slidesPerView: 3.6,
+            slidesPerView: 3.3,
           },
           701: {
             slidesPerView: 4.8,
@@ -42,6 +42,9 @@ const Casts = () => {
           },
           1201: {
             slidesPerView: 6.2,
+          },
+          1441: {
+            slidesPerView: 4.8,
           },
           // Add more breakpoints as needed.
         }}

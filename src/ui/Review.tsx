@@ -11,7 +11,7 @@ type ReviewProps = {
 const Review = ({ rating, review, author }: ReviewProps) => {
   return (
     <article className="w-full overflow-hidden rounded-md border border-grey-100 p-8 text-grey-800 shadow-sm dark:border-dark-grey-100 dark:bg-dark-grey-50 dark:text-dark-grey-800">
-      <header className="mobile: mb-8 flex flex-col items-center justify-between mobile:items-start mobile:gap-8">
+      <header className="mb-8 flex items-center justify-between mobile:flex-col mobile:items-start mobile:gap-8">
         <span className="text-[1.6rem] font-semibold">{author}</span>
         <FilmRating rating={rating} />
       </header>

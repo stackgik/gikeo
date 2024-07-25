@@ -17,7 +17,7 @@ const Sidebar = () => {
       onClick={handleClick}
     >
       <Logo />
-      <div className="PC:mt-20">
+      <div className="PC:mt-6">
         <MainNav />
       </div>
       <div>
