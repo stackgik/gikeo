@@ -16,18 +16,25 @@ body {
 
 ::-webkit-scrollbar {
   width: 1rem;
+  display: none;
 }
 
 ::-webkit-scrollbar-track {
   background-color: #f3f4f6;
   border-radius: 100vw;
   margin-block: 0.5rem;
+  display: none;
+
+  /* @media (max-width: 768px) {
+
+  } */
 }
 
 ::-webkit-scrollbar-thumb {
   background-color: #d1d5db;
   border-radius: 100vw;
   height: 15rem;
+  display: none;
 }
 
 @layer components {

@@ -58,7 +58,7 @@ const PopularMedia = () => {
               slidesPerView: 1.6,
             },
             401: {
-              slidesPerView: 3.2,
+              slidesPerView: 2.3,
             },
             701: {
               slidesPerView: 4.3,

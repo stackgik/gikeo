@@ -20,7 +20,7 @@ const AppLayout = () => {
       </div>
       <Header />
       <main
-        className={`${isSidebarOpen ? "overflow-y-hidden" : "overflow-y-scroll"} bg-grey-50 dark:bg-dark-grey-50`}
+        className={`${isSidebarOpen ? "overflow-y-hidden" : "overflow-y-scroll"} min-h-0 flex-1 bg-grey-50 dark:bg-dark-grey-50`}
       >
         <Outlet />
       </main>
