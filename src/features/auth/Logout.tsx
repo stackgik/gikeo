@@ -12,6 +12,7 @@ const Logout = () => {
     logout();
   }
   if (isLoggingOut) return <OverlayLoader />;
+
   return (
     <Link to="" className="navlink group" onClick={handleLogout}>
       <HiOutlineArrowLeftStartOnRectangle

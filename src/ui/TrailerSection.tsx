@@ -33,50 +33,54 @@ const TrailerSection = () => {
     setVideoId(null);
   }
 
+  if (teasers === undefined) return;
+
   return (
     <section className="swiper-container mobile:p-12">
       <Tag>Official Trailers</Tag>
-      <Swiper
-        loop={false}
-        grabCursor={true}
-        spaceBetween={20}
-        slidesPerView={2.3}
-        breakpoints={{
-          0: {
-            slidesPerView: 1.2,
-          },
-          401: {
-            slidesPerView: 1.8,
-          },
-          701: {
-            slidesPerView: 2.5,
-          },
-          1025: {
-            slidesPerView: 2.2,
-          },
-          1201: {
-            slidesPerView: 3.5,
-          },
-          // Add more breakpoints as needed.
-        }}
-        className="mb-8 mt-16 w-full"
-      >
-        {teasers !== undefined && teasers.length > 0 ? (
-          teasers?.map((teaser) => (
-            <SwiperSlide key={teaser.key}>
-              <Trailer
-                thumbnail={teaser.key}
-                teaserName={teaser.name}
-                onClick={() => handleVideo(teaser.key)}
-              />
-            </SwiperSlide>
-          ))
-        ) : (
-          <p className="mt-6 text-[1.5rem] font-medium dark:text-dark-grey-500">
-            Oh oh! There is no trailers to display
-          </p>
-        )}
-      </Swiper>
+      {teasers.length > 0 ? (
+        <Swiper
+          loop={false}
+          grabCursor={true}
+          spaceBetween={20}
+          slidesPerView={2.3}
+          breakpoints={{
+            0: {
+              slidesPerView: 1.2,
+            },
+            401: {
+              slidesPerView: 1.8,
+            },
+            701: {
+              slidesPerView: 2.5,
+            },
+            1025: {
+              slidesPerView: 2.2,
+            },
+            1201: {
+              slidesPerView: 3.5,
+            },
+            // Add more breakpoints as needed.
+          }}
+          className="mb-8 mt-16 w-full"
+        >
+          {teasers?.map((teaser) => {
+            return (
+              <SwiperSlide key={teaser.key}>
+                <Trailer
+                  thumbnail={teaser.key}
+                  teaserName={teaser.name}
+                  onClick={() => handleVideo(teaser.key)}
+                />
+              </SwiperSlide>
+            );
+          })}
+        </Swiper>
+      ) : (
+        <p className="mt-6 text-[1.5rem] font-medium dark:text-dark-grey-500">
+          Oh oh! There is no trailers to display
+        </p>
+      )}
       <VideoPopup
         show={show}
         setShow={setShow}
