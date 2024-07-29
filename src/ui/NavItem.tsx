@@ -1,5 +1,6 @@
 import { ComponentType, SVGAttributes } from "react";
 import { NavLink } from "react-router-dom";
+import { useMenuToggle } from "../context/MenuToggleContext";
 
 interface INavItems {
   to: string;
@@ -8,8 +9,14 @@ interface INavItems {
 }
 
 const NavItem = ({ to, label, Icon }: INavItems) => {
+  const { setIsSidebarOpen } = useMenuToggle();
+
+  const handleClick = () => {
+    setIsSidebarOpen(false);
+  };
+
   return (
-    <li>
+    <li onClick={handleClick}>
       <NavLink to={to} className="navlink group">
         <Icon className="group-hover:text-brand-500" />
         <span>{label}</span>

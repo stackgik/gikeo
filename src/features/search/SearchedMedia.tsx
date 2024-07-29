@@ -71,7 +71,7 @@ const SearchedMedia = () => {
         )}
       </section>
       {!isQueryResultsLoading && totalPages > 1 && (
-        <div className="mx-auto my-12 flex w-[130rem] items-center justify-end gap-8">
+        <div className="mx-auto my-12 flex w-custom-min-width items-center justify-end gap-8">
           <Button
             size={"medium"}
             disabled={!hasPreviousPage}

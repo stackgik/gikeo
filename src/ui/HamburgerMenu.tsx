@@ -1,5 +1,6 @@
 import { HiOutlineBars3BottomLeft } from "react-icons/hi2";
 import { useMenuToggle } from "../context/MenuToggleContext";
+
 const HamburgerMenu = () => {
   const { setIsSidebarOpen } = useMenuToggle();
 

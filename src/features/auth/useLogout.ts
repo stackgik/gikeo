@@ -9,7 +9,10 @@ const useLogout = () => {
   const { mutate: logout, isPending: isLoggingOut } = useMutation({
     mutationFn: () => apiLogout(),
     onSuccess: () => {
-      navigate("/login", { replace: true });
+      setTimeout(() => {
+        navigate("/login", { replace: true });
+        queryClient.removeQueries();
+      }, 500);
       queryClient.removeQueries();
     },
     onError: (error) => toast.error(error.message),

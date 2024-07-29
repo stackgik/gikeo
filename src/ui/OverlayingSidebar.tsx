@@ -4,7 +4,7 @@ import { useMenuToggle } from "../context/MenuToggleContext";
 const OverlayingSidebar = () => {
   const { setIsSidebarOpen, isSidebarOpen } = useMenuToggle();
 
-  if (!isSidebarOpen) return null;
+  // if (!isSidebarOpen) return null;
 
   return (
     <>
