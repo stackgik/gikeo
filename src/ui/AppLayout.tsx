@@ -9,7 +9,7 @@ const AppLayout = () => {
 
   return (
     <>
-      <div className="grid h-screen grid-cols-[260px_1fr] grid-rows-[auto_1fr_auto] PC:flex PC:flex-col">
+      <div className="grid h-[100svh] grid-cols-[260px_1fr] grid-rows-[auto_1fr_auto] PC:flex PC:flex-col">
         <div
           className={`col-start-1 row-span-full row-start-1 ${isSidebarOpen ? "PC:absolute PC:inset-0 PC:z-30 PC:h-full PC:w-[260px]" : "PC:hidden"}`}
         >
