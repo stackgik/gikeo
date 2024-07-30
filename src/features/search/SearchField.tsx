@@ -13,20 +13,46 @@ type SearchFieldProp = {
 };
 
 const SearchField = ({ setIsSearchFieldOpen }: SearchFieldProp) => {
+  // const [query, setQuery] = useState("");
+  // const [searchParams, setSearchParams] = useSearchParams();
+  // const navigate = useNavigate();
+
+  // const handleQuery = (e: ChangeEvent<HTMLInputElement>): void => {
+  //   const query = e.target?.value?.trim().toLowerCase();
+  //   setQuery(query);
+  // };
+
+  // const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
+  //   e.preventDefault();
+  //   if (query.length < 3) return;
+  //   searchParams.set("query", query);
+  //   navigate(`/search?query=${query}`);
+  //   if (setIsSearchFieldOpen) setIsSearchFieldOpen(false);
+  // };
+
+  // const clearQuery = () => {
+  //   setQuery("");
+  //   searchParams.delete("query");
+  //   setSearchParams(searchParams);
+  //   navigate("/dashboard");
+  // };
+
   const [query, setQuery] = useState("");
   const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
 
   const handleQuery = (e: ChangeEvent<HTMLInputElement>): void => {
-    const query = e.target?.value?.trimStart().trimEnd().toLowerCase();
+    const query = e.target?.value.trimStart().toLowerCase();
     setQuery(query);
   };
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
-    if (query.length < 3) return;
-    searchParams.set("query", query);
-    navigate(`/search?query=${query}`);
+    const trimmedQuery = query.trim();
+    if (trimmedQuery.length < 3) return;
+    searchParams.set("query", trimmedQuery);
+    setSearchParams(searchParams);
+    navigate(`/search?query=${trimmedQuery}`);
     if (setIsSearchFieldOpen) setIsSearchFieldOpen(false);
   };
 
