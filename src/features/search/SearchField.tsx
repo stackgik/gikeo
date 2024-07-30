@@ -18,7 +18,7 @@ const SearchField = ({ setIsSearchFieldOpen }: SearchFieldProp) => {
   const navigate = useNavigate();
 
   const handleQuery = (e: ChangeEvent<HTMLInputElement>): void => {
-    const query = e.target?.value;
+    const query = e.target?.value?.trim().toLowerCase();
     setQuery(query);
   };
 

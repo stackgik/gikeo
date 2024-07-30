@@ -31,6 +31,7 @@ export const useSearchQuery = () => {
     if (dataLen !== null && dataLen !== 0) {
       searchParams.set("page", String(page));
       setSearchParams(searchParams);
+      window.scrollTo(0, 0);
     }
   }, [page, searchParams, setSearchParams, dataLen]);
 

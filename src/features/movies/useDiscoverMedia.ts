@@ -19,6 +19,7 @@ const useDiscoverMedia = (mediaApi: MediaApi, key: string) => {
   useEffect(() => {
     searchParams.set("page", String(pageNum));
     setSearchParams(searchParams);
+    window.scrollTo(0, 0);
   }, [pageNum, searchParams, setSearchParams]);
 
   const {

@@ -12,7 +12,7 @@ const useLogout = () => {
       setTimeout(() => {
         navigate("/login", { replace: true });
         queryClient.removeQueries();
-      }, 500);
+      }, 0);
       queryClient.removeQueries();
     },
     onError: (error) => toast.error(error.message),

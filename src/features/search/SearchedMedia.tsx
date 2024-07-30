@@ -43,7 +43,7 @@ const SearchedMedia = () => {
         {isQueryResultsLoading ? (
           ""
         ) : (
-          <h1 className="text-4xl font-bold text-grey-800 dark:text-dark-grey-800">
+          <h1 className="text-4xl font-bold text-grey-800 mobile:text-center dark:text-dark-grey-800">
             {queryResults?.results.length === 0
               ? `Aww...looks like we couldn't find shows by "${query}"`
               : "Your search results are here..."}
