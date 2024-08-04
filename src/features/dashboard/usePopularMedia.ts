@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import { getPopularMedia } from "../../services/apiPopularMedia";
-import { type SimilarMoviesResponse } from "../../services/apiMovies";
+import { SimilarMoviesResponse } from "../../types";
 
 const usePopularMedia = () => {
   const [active, setActive] = useState("tv");

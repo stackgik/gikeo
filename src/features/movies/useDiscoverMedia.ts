@@ -1,7 +1,7 @@
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { AllMoviesProps } from "../../services/apiMovies";
+import { AllMoviesProps } from "../../types";
 
 type MediaApi = (
   sortByValue: string | null,

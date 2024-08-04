@@ -1,17 +1,6 @@
+import { LoginProps, SignUpProps } from "../types";
 import { supabase, supabaseUrl } from "./supabase";
 import { v4 as uuidv4 } from "uuid";
-
-export type LoginProps = {
-  email: string;
-  password: string;
-};
-
-export type SignUpProps = {
-  username: string;
-  email: string;
-  password: string;
-  avatar?: string;
-};
 
 // prettier-ignore
 export const signUp = async ({ username, email, password, avatar}: SignUpProps) => {

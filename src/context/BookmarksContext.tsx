@@ -5,7 +5,7 @@ import {
   useEffect,
   useState,
 } from "react";
-import { type MediaDataProps } from "../ui/MediaCard";
+import { MediaDataProps } from "../types";
 
 interface IBookmarksContext {
   bookmarks: MediaDataProps[];

@@ -3,18 +3,7 @@ import SortBy from "../../ui/SortBy";
 import Button from "../../ui/Button";
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from "react-icons/hi2";
 import { SkeletonCard } from "../../ui/SkeletonCard";
-import { type Movie } from "../../services/apiMovies";
-import { Dispatch, SetStateAction } from "react";
-
-type IAllMedia = {
-  allMediaData: Movie[];
-  isAllMediaLoading: boolean;
-  allMediaError: Error | null;
-  pageNum: number;
-  totalPages: number;
-  setPageNum: Dispatch<SetStateAction<number>>;
-  mediaType: string;
-};
+import { IAllMedia } from "../../types";
 
 // prettier-ignore
 const AllMedia = ({  allMediaData,  isAllMediaLoading,  allMediaError,  pageNum,  setPageNum,  totalPages, mediaType }: IAllMedia) => {
@@ -33,11 +22,11 @@ const AllMedia = ({  allMediaData,  isAllMediaLoading,  allMediaError,  pageNum,
   const hasNextPage = totalPages > pageNum;
 
   const handleNextPage = () => {
-    setPageNum((prev) => prev + 1);
+    setPageNum((prev:number) => prev + 1);
   };
 
   const handlePreviousPage = () => {
-    setPageNum((prev) => prev - 1);
+    setPageNum((prev:number) => prev - 1);
   };
 
   if (allMediaError) return <p className="text-[1.4rem] text-center font-medium dark:text-dark-grey-500">{allMediaError.message}</p>;

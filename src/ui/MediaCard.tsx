@@ -3,13 +3,8 @@ import Img from "./Img";
 import CircularRating from "./CircularRating";
 import { TbMovie } from "react-icons/tb";
 import PosterFallback from "/assets/no-poster.png";
-import { type Movie } from "../services/apiMovies";
 import Bookmark from "../features/bookmark/Bookmark";
-
-export type MediaDataProps = {
-  mediaData: Movie;
-  mediaType: string;
-};
+import { MediaDataProps } from "../types";
 
 // prettier-ignore
 const MediaCard = ({mediaData, mediaType}:MediaDataProps) => {

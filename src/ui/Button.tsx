@@ -1,15 +1,4 @@
-import { MouseEvent, ReactNode } from "react";
-
-interface IButton {
-  children: ReactNode;
-  width?: "full";
-  size: "small" | "medium" | "large";
-  variation: "primary" | "secondary" | "danger";
-  disabled?: boolean;
-  onClick?: (e: MouseEvent<HTMLButtonElement>) => void;
-  type?: "submit" | "reset";
-  extraClass?: string;
-}
+import { IButton } from "../types";
 
 // prettier-ignore
 function Button({ size, variation, children, type, disabled, onClick, width, extraClass }: IButton) {
