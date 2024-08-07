@@ -3,7 +3,6 @@ import SortBy from "../../ui/SortBy";
 import Button from "../../ui/Button";
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from "react-icons/hi2";
 import { SkeletonCard } from "../../ui/SkeletonCard";
-import { IAllMedia } from "../../types";
 
 // prettier-ignore
 const AllMedia = ({  allMediaData,  isAllMediaLoading,  allMediaError,  pageNum,  setPageNum,  totalPages, mediaType }: IAllMedia) => {

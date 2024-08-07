@@ -20,7 +20,7 @@ const SignUpForm = () => {
     watch,
     formState: { errors },
     reset,
-  } = useForm<FormData>();
+  } = useForm<FormData>({ mode: "all" });
 
   const { signUp, isSigningUp } = useSignUp();
 

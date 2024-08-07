@@ -1,4 +1,3 @@
-import { LoginProps, SignUpProps } from "../types";
 import { supabase, supabaseUrl } from "./supabase";
 import { v4 as uuidv4 } from "uuid";
 

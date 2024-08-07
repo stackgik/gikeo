@@ -2,7 +2,6 @@ import { useQuery } from "@tanstack/react-query";
 import { getQueryResults } from "../../services/apiSearch";
 import { useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { SimilarMoviesResponse } from "../../types";
 
 export const useSearchQuery = () => {
   const [searchParams, setSearchParams] = useSearchParams();

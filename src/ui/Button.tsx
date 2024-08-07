@@ -1,4 +1,3 @@
-import { IButton } from "../types";
 
 // prettier-ignore
 function Button({ size, variation, children, type, disabled, onClick, width, extraClass }: IButton) {

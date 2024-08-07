@@ -1,11 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
 import { getMovieDetails, getMovieTrailers } from "../../services/apiMovies";
-import {
-  MovieDetailsProps,
-  MovieDetailsResponse,
-  TrailerResponse,
-} from "../../types";
 
 const useMovieDetails = () => {
   const { mediaType, id } = useParams<MovieDetailsProps>();

@@ -1,6 +1,5 @@
 import axios from "axios";
 import { config } from "../config";
-import { SimilarMoviesResponse } from "../types";
 
 const BASE_URL = "https://api.themoviedb.org/3";
 const TMDB_TOKEN = config.tmdbToken;

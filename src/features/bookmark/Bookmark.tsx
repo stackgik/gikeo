@@ -1,6 +1,5 @@
 import { HiBookmark, HiOutlineBookmark } from "react-icons/hi2";
 import { useBookmarks } from "../../context/BookmarksContext";
-import { MediaDataProps } from "../../types";
 
 const Bookmark = ({ mediaData, mediaType }: MediaDataProps) => {
   const { addBookmark, removeBookmark, isBookmarked } = useBookmarks();
