@@ -1,6 +1,12 @@
 import { supabase, supabaseUrl } from "./supabase";
 import { v4 as uuidv4 } from "uuid";
 
+export type UpdateUserProps = {
+  username?: string;
+  password?: string;
+  avatar?: File | null;
+};
+
 // prettier-ignore
 export const signUp = async ({ username, email, password, avatar}: SignUpProps) => {
   const { data, error } = await supabase.auth.signUp({
@@ -29,7 +35,7 @@ export const login = async ({ email, password }: LoginProps) => {
   return data;
 };
 
-//This function is used to get the current user in session, if any. It is needed for when the current page is still open and the user refreshes the page, which means the component will unmount to mount again i.e. re-render, we dont wanna send the user to the login page for leaving the page idle to couple of hours or so, bad for UX. So, if that is the case, we wanna download the user information from the DB again.
+//This function is used to get the current user in session, if any. It is needed for when the current page is still open and the user refreshes the page, which means the component will unmount to mount again i.e. re-render, we dont wanna send the user to the login page for leaving the page idle for a few hours or so, bad for UX. So, if that is the case, we wanna download the user information from the DB again.
 
 export const getCurrentUser = async () => {
   // checking if there is session
@@ -40,17 +46,6 @@ export const getCurrentUser = async () => {
   const { data, error } = await supabase.auth.getUser();
   if (error) throw new Error(error.message);
   return data?.user;
-};
-
-export const logout = async () => {
-  const { error } = await supabase.auth.signOut();
-  if (error) throw new Error(error.message);
-};
-
-export type UpdateUserProps = {
-  username?: string;
-  password?: string;
-  avatar?: File | null;
 };
 
 // This function is used to update the user's profile in the database.
@@ -87,4 +82,9 @@ export const updateUser = async ({
 
   if (updateError) throw new Error(updateError.message);
   return updatedUser;
+};
+
+export const logout = async () => {
+  const { error } = await supabase.auth.signOut();
+  if (error) throw new Error(error.message);
 };
