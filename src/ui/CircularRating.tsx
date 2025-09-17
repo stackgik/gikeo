@@ -1,5 +1,5 @@
-import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
-import 'react-circular-progressbar/dist/styles.css';
+import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
+import "react-circular-progressbar/dist/styles.css";
 
 interface ICircularRating {
   rating: number;
@@ -7,13 +7,14 @@ interface ICircularRating {
 
 const CircularRating = ({ rating }: ICircularRating) => {
   return (
-    <div className="circleRating bg-grey-900 rounded-full p-[2px]">
+    <div className="circleRating rounded-full bg-grey-900 p-0.5">
       <CircularProgressbar
         value={rating}
         maxValue={10}
         text={`${rating}`}
         styles={buildStyles({
-          pathColor: rating < 5 ? 'red' : rating < 7 ? 'orange' : 'green',
+          pathColor: rating < 5 ? "red" : rating < 7 ? "orange" : "green",
+          textSize: "30px",
         })}
       />
     </div>
