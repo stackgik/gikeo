@@ -9,7 +9,7 @@ const useSignUp = () => {
     mutationFn: ({ username, email, password, avatar }: SignUpProps) =>
       signUpApi({ username, email, password, avatar }),
     onSuccess: () => {
-      toast.success("You have successfully signed up");
+      toast.success("Please check your email to confirm your account");
       navigate("/login", { replace: true });
     },
     onError: (error) => toast.error(error.message),
